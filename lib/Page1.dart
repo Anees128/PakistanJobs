@@ -14,69 +14,106 @@ class _Page1State extends State<Page1> {
         child: Column(
           children: [
             Container(
+              height: 200,
+              width: 400,
               margin: EdgeInsets.all(7),
-              padding: EdgeInsets.all(100),
-              alignment: Alignment.center,
+              padding: EdgeInsets.only(left:82),
+              alignment: Alignment.bottomLeft,
               decoration: BoxDecoration(
                   // set border width
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   color: Colors.grey[400]),
-              child: Text("My demo styling"),
+               child: Image.network(
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/State_emblem_of_Pakistan.svg/1200px-State_emblem_of_Pakistan.svg.png"),
             ),
-            Container(
-              margin: EdgeInsets.all(7),
-              padding: EdgeInsets.all(50),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-               
-                 // set border width
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
-                  ),
-                  color: Colors.grey[400]),
-              child: Text("My demo styling"),
+            SizedBox(
+              height: 20,
             ),
-             Container(
-              margin: EdgeInsets.all(7),
-              padding: EdgeInsets.all(50),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Colors.green[500], // set border color
-                      width: 3.0), // set border width
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
-                  ),
-                  color: Colors.grey[400]),
-              child: Text("My demo styling"),
+            Column(
+              children: [
+                Container(
+                  width: 140,
+                  height: 130,
+                  margin: EdgeInsets.only(right: 200),
+                  padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+
+                      // set border width
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30.0),
+                      ),
+                      color: Colors.grey[400]),
+                  child: Image.network(
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/State_emblem_of_Pakistan.svg/1200px-State_emblem_of_Pakistan.svg.png"),
+                ),
+              ],
             ),
-             Container(
-              margin: EdgeInsets.all(7),
-              padding: EdgeInsets.all(50),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Colors.green[500], // set border color
-                      width: 3.0), // set border width
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
-                  ),
-                  color: Colors.grey[400]),
-              child: Text("My demo styling"),
+            SizedBox(
+              height: 10,
             ),
-            Container(
-              margin: EdgeInsets.all(7),
-              padding: EdgeInsets.all(50),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Colors.green[500], // set border color
-                      width: 3.0), // set border width
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
-                  ),
-                  color: Colors.grey[400]),
-              child: Text("My demo styling"),
+            Column(
+              children: [
+                Container(
+                  width: 140,
+                  height: 130,
+                  margin: EdgeInsets.only(right: 200),
+                  padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+ 
+                      // set border width
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30.0),
+                      ),
+                      color: Colors.grey[400]),
+                      
+                  child:Image.network(
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/State_emblem_of_Pakistan.svg/1200px-State_emblem_of_Pakistan.svg.png"),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Column(
+              children: [
+                Container(
+                  width: 140,
+                  height: 130,
+                  margin: EdgeInsets.only(right: 200),
+                  padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+
+                      // set border width
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30.0),
+                      ),
+                      color: Colors.grey[400]),
+                  child: Image.network(
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/State_emblem_of_Pakistan.svg/1200px-State_emblem_of_Pakistan.svg.png"),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Column(
+              children: [
+                Container(
+                  width: 140,
+                  height: 130,
+                  margin: EdgeInsets.only(right: 200),
+                  padding: EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+
+                      // set border width
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30.0),
+                      ),
+                      color: Colors.grey[400]),
+                  child: Image.network(
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/State_emblem_of_Pakistan.svg/1200px-State_emblem_of_Pakistan.svg.png"),
+                ),
+              ],
             ),
           ],
         ),
