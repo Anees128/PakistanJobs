@@ -27,10 +27,10 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.green[900],
             title: Text(
               "Pakistan Jobs2",
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
             ),
             actions: <Widget>[
               Container(
