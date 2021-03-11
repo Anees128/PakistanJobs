@@ -45,42 +45,31 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavyBar(
-          selectedIndex: _currentIndex,
-          showElevation: true,
-          itemCornerRadius: 24,
-          curve: Curves.easeIn,
-          onItemSelected: (index) => setState(() => _currentIndex = index),
-          items: <BottomNavyBarItem>[
-            BottomNavyBarItem(
-              icon: Icon(Icons.apps),
-              inactiveColor: Colors.grey,
-              title: Text('Home'),
-              activeColor: Colors.red,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: Icon(Icons.people),
-              title: Text('Posts'),
-              activeColor: Colors.purpleAccent,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: Icon(Icons.message),
-              title: Text(
-                'Messages test for mes teset test test ',
-              ),
-              activeColor: Colors.pink,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: Icon(Icons.settings),
-              title: Text('Settings'),
-              activeColor: Colors.blue,
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
+         bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        onItemSelected: (index) {
+          setState(() => _currentIndex = index);
+          _pageController.jumpToPage(index);
+        },
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+            title: Text('Item One'),
+            icon: Icon(Icons.home)
+          ),
+          BottomNavyBarItem(
+            title: Text('Item Two'),
+            icon: Icon(Icons.apps)
+          ),
+          BottomNavyBarItem(
+            title: Text('Item Three'),
+            icon: Icon(Icons.chat_bubble)
+          ),
+          BottomNavyBarItem(
+            title: Text('Item Four'),
+            icon: Icon(Icons.settings)
+          ),
+        ],
+      ),
       ),
     );
   }
