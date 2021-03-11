@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             BottomNavyBarItem(
               icon: Icon(Icons.people),
-              title: Text('Users'),
+              title: Text('Posts'),
               activeColor: Colors.purpleAccent,
               textAlign: TextAlign.center,
             ),
