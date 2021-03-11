@@ -33,16 +33,20 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
             ),
             actions: <Widget>[
-              Container(
-                child: ClipOval(
-                  child: Align(
-                    heightFactor: 30,
-                    child: Image.network(
-                        "https://banner2.cleanpng.com/20180401/dbq/kisspng-user-profile-computer-icons-profile-5ac09245049c32.0935523415225697970189.jpg"),
+              InkWell(
+                child: Container(
+                  child: ClipOval(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.black12,
+                      child:Icon(Icons.person)
+                    ),
                   ),
                 ),
+                onTap: (){},
               ),
-            ]),
+              
+            ]
+            ),
         body: SizedBox.expand(
           child: PageView(
             controller: _pageController,
