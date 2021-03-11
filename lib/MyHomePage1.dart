@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:pakistan_jobs2/Profile1.dart';
+
+import 'Page1.dart';
+import 'Page2.dart';
+import 'Page3.dart';
+import 'Page4.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -30,42 +36,50 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Colors.green[900],
             title: Text(
               "Pakistan Jobs2",
-              style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
             ),
             actions: <Widget>[
               InkWell(
-                child: Container(
-                  child: ClipOval(
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black12,
-                      child:Icon(Icons.person)
+                child: Row(
+                  children: [
+                    ClipOval(
+                      child: CircleAvatar(
+                          backgroundColor: Colors.black12,
+                          child: Icon(Icons.person)),
                     ),
-                  ),
+                  ],
                 ),
-                onTap: (){},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Profile1(),
+                    ),
+                  );
+                },
               ),
               
-            ]
-            ),
-        body: SizedBox.expand(
+              InkWell(
+                child: Container(color: Colors.red),
+              )
+            ]),
+        body: Container(
           child: PageView(
             controller: _pageController,
             onPageChanged: (index) {
               setState(() => _currentIndex = index);
             },
             children: <Widget>[
-              Container(
-                color: Colors.blueGrey,
-              ),
-              Container(
-                color: Colors.red,
-              ),
-              Container(
-                color: Colors.green,
-              ),
-              Container(
-                color: Colors.blue,
-              ),
+              Page1(),
+              Page2(),
+              Page3(),
+              Page4(),
+          //   Container(color: Colors.red,),
+          //   Container(color: Colors.green,),
+          //   Container(color: Colors.blue,),
             ],
           ),
         ),
@@ -93,7 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text('Video'),
                 icon: Icon(Icons.slow_motion_video_rounded)),
             BottomNavyBarItem(
-                activeColor: Colors.blue,
+
+                activeColor: Colors.red,
                 inactiveColor: Colors.grey,
                 title: Text('Favorate'),
                 icon: Icon(Icons.favorite)),
