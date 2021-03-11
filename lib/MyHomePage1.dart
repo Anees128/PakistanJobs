@@ -41,30 +41,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontSize: 25,
                   fontWeight: FontWeight.bold),
             ),
+            
             actions: <Widget>[
-              InkWell(
+              FlatButton(
+              minWidth: 1,
+                color: Colors.red,
+                onPressed: () {  },
                 child: Row(
                   children: [
-                    ClipOval(
-                      child: CircleAvatar(
-                          backgroundColor: Colors.black12,
-                          child: Icon(Icons.person)),
-                    ),
+                    CircleAvatar(
+                        backgroundColor: Colors.green[900],
+                        child: Icon(Icons.person)),
                   ],
                 ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Profile1(),
-                    ),
-                  );
-                },
               ),
               
-              InkWell(
-                child: Container(color: Colors.red),
-              )
+              
+              
             ]),
         body: Container(
           child: PageView(
@@ -75,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Page1(),
               Page2(),
+
               Page3(),
               Page4(),
           //   Container(color: Colors.red,),
