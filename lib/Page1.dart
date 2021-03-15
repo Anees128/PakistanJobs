@@ -16,6 +16,7 @@ class _Page1State extends State<Page1> {
               children: <Widget>[
                 Container(
                   height: 170.0,
+                  width: 500,
                   margin: const EdgeInsets.symmetric(
                     vertical: 1.0,
                     horizontal: 10.0,
@@ -26,9 +27,8 @@ class _Page1State extends State<Page1> {
                         Radius.circular(30.0),
                       ),
                       color: Colors.grey[400]),
-                  child: new Stack(
-                    children: <Widget>[],
-                  ),
+                  child: Image.network(
+                          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/State_emblem_of_Pakistan.svg/1200px-State_emblem_of_Pakistan.svg.png"),
                 ),
                 SizedBox(
                   height: 20,
@@ -80,6 +80,7 @@ class _Page1State extends State<Page1> {
                 Column(
                   children: [
                     Container(
+                    alignment: Alignment.center,
                       width: 140,
                       height: 130,
                       margin: EdgeInsets.only(right: 200),
