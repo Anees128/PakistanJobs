@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'EditeProfile.dart';
-import 'Page1.dart';
+import 'MyHomePage1.dart';
 
 class ProfilePage1 extends StatefulWidget {
   @override
@@ -24,7 +24,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Page1()),
+              MaterialPageRoute(builder: (context) => MyHomePage()),
             );
           },
         ),
