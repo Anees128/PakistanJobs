@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "596056407281",
+    "project_id": "pakistanjobs1-1174b",
+    "storage_bucket": "pakistanjobs1-1174b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596056407281:android:acffb93717153760793d50",
+        "android_client_info": {
+          "package_name": "com.example.pakistan_jobs2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596056407281-5dove7slvdijqcagvqaaflntuic0ksls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pakistan_jobs2",
+            "certificate_hash": "756102e2d0722216e385185fe9aaed5923f610f3"
+          }
+        },
+        {
+          "client_id": "596056407281-rpgadlidi4o9abi25s0c8n005o576mok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh1okx9igw4Q9apEVYTjOvxXVnhSeLFNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596056407281-rpgadlidi4o9abi25s0c8n005o576mok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -41,23 +41,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontSize: 25,
                   fontWeight: FontWeight.bold),
             ),
-            
             actions: <Widget>[
-              FlatButton(
-              minWidth: 1,
-                color: Colors.red,
-                onPressed: () {  },
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                        backgroundColor: Colors.green[900],
-                        child: Icon(Icons.person)),
-                  ],
-                ),
-              ),
-              
-              
-              
+              IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>ProfilePage1()),
+                    );
+                  }),
+                  IconButton(
+                  icon: const Icon(Icons.person),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>ProfilePage1()),
+                    );
+                  }),
             ]),
         body: Container(
           child: PageView(
@@ -68,12 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Page1(),
               Page2(),
-
               Page3(),
               Page4(),
-          //   Container(color: Colors.red,),
-          //   Container(color: Colors.green,),
-          //   Container(color: Colors.blue,),
+              //   Container(color: Colors.red,),
+              //   Container(color: Colors.green,),
+              //   Container(color: Colors.blue,),
             ],
           ),
         ),
@@ -101,7 +102,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text('Video'),
                 icon: Icon(Icons.slow_motion_video_rounded)),
             BottomNavyBarItem(
-
                 activeColor: Colors.red,
                 inactiveColor: Colors.grey,
                 title: Text('Favorate'),
