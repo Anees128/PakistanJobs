@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage1 extends StatefulWidget {
+import 'Profile1.dart';
+
+class EditeProfile1 extends StatefulWidget {
   @override
-  _ProfilePage1State createState() => _ProfilePage1State();
+  _EditeProfile1State createState() => _EditeProfile1State();
 }
 
-class _ProfilePage1State extends State<ProfilePage1> {
+class _EditeProfile1State extends State<EditeProfile1> {
   bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text(
+          "Edite Profile",
+          style: TextStyle(color: Colors.green),
+        ),
         elevation: 1,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
             color: Colors.green,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage1()),
+            );
+          },
         ),
         actions: [
           IconButton(
@@ -38,12 +49,12 @@ class _ProfilePage1State extends State<ProfilePage1> {
           },
           child: ListView(
             children: [
-              Text(
-                "Edit Profile",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-              ),
+              // Text(
+              //   "Edit Profile",
+              //   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              // ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Center(
                 child: Stack(
@@ -69,36 +80,16 @@ class _ProfilePage1State extends State<ProfilePage1> {
                                 "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
                               ))),
                     ),
-                    Positioned(
-                      
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                            ),
-                            color: Colors.green,
-                          ),
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
-                          ),
-                        )),
                   ],
                 ),
               ),
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "Dor Alex", false),
-              buildTextField("E-mail", "alexd@gmail.com", false),
-              buildTextField("Password", "********", true),
-              buildTextField("Location", "TLV, Israel", false),
+              buildTextField("Full Name", "", false),
+              buildTextField("E-mail", "", false),
+              buildTextField("Password", "", true),
+              // buildTextField("Location", "", false),
               SizedBox(
                 height: 35,
               ),
@@ -109,7 +100,12 @@ class _ProfilePage1State extends State<ProfilePage1> {
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProfilePage1()),
+                      );
+                    },
                     child: Text("CANCEL",
                         style: TextStyle(
                             fontSize: 14,

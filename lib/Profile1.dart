@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'EditeProfile.dart';
+import 'Page1.dart';
+
 class ProfilePage1 extends StatefulWidget {
   @override
   _ProfilePage1State createState() => _ProfilePage1State();
 }
 
 class _ProfilePage1State extends State<ProfilePage1> {
-  bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text("ProfilePage",style:TextStyle(color: Colors.green),),
         elevation: 1,
         leading: IconButton(
           icon: Icon(
@@ -19,9 +22,9 @@ class _ProfilePage1State extends State<ProfilePage1> {
             color: Colors.green,
           ),
           onPressed: () {
-            Navigator.pop(
+            Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ProfilePage1()),
+              MaterialPageRoute(builder: (context) => Page1()),
             );
           },
         ),
@@ -50,9 +53,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                       width: 130,
                       height: 130,
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 3,
-                            color: Theme.of(context).scaffoldBackgroundColor),
+                        border: Border.all(width: 3, color: Colors.white),
                         boxShadow: [
                           BoxShadow(
                               spreadRadius: 2,
@@ -72,21 +73,30 @@ class _ProfilePage1State extends State<ProfilePage1> {
                     Positioned(
                       bottom: 0,
                       right: 0,
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: 4,
-                            color: Theme.of(context).scaffoldBackgroundColor,
+                      child: InkWell(
+                      onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EditeProfile1()),
+                          );
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 4,
+                              color: Theme.of(context).scaffoldBackgroundColor,
+                            ),
+                            color: Colors.green,
                           ),
-                          color: Colors.green,
-                        ),
-                        child: Icon(
-                          Icons.edit,
-                          color: Colors.white,
-                          size: 20,
+                          child: Icon(
+                            Icons.edit,
+                            color: Colors.white,
+                            size: 20,
+                          ),
                         ),
                       ),
                     ),
@@ -105,46 +115,64 @@ class _ProfilePage1State extends State<ProfilePage1> {
                 height: 25,
               ),
               ListTile(
-                  leading: const Icon(Icons.color_lens_rounded,size: 35,),
-                  title: const Text("Dark Theme"),
-                  subtitle: Text('The airplane is only in Act II.'),
-                  
+                
+                  leading: const Icon(
+                    Icons.color_lens_rounded,
+                    size: 38,
+                  ),
+                  title: const Text(
+                    "Dark Theme",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('Better for sighteye and battery life'),
                   trailing: Icon(Icons.search_off_rounded),
-                  
+                  onTap: () {
+
+                  }),
+              ListTile(
+                  leading: const Icon(
+                    Icons.lock,
+                    size: 35,
+                  ),
+                  title: const Text(
+                    "Privacy Policy",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('App Terms and Policies'),
                   onTap: () {/* react to the tile being tapped */}),
-                  ListTile(
-                  leading: const Icon(Icons.lock,size: 35,),
-                  title: const Text("Privacy Policy"),
-                  subtitle: Text('The airplane is only in Act II.'),
-                  
-                  trailing: Icon(Icons.search_off_rounded),
-                  
+              ListTile(
+                  leading: const Icon(
+                    Icons.rate_review,
+                    size: 35,
+                  ),
+                  title: const Text(
+                    "Rate Us",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('Leave a Reivew on Goolge play'),
                   onTap: () {/* react to the tile being tapped */}),
-                  ListTile(
-                  leading: const Icon(Icons.rate_review,size: 35,),
-                  title: const Text("Rate Us"),
-                  subtitle: Text('The airplane is only in Act II.'),
-                  
-                  trailing: Icon(Icons.search_off_rounded),
-                  
+              ListTile(
+                  leading: const Icon(
+                    Icons.more,
+                    size: 35,
+                  ),
+                  title: const Text(
+                    "More Apps",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('More Apps from Developer'),
                   onTap: () {/* react to the tile being tapped */}),
-                  ListTile(
-                  leading: const Icon(Icons.more,size: 35,),
-                  title: const Text("More Apps"),
-                  subtitle: Text('The airplane is only in Act II.'),
-                  
-                  trailing: Icon(Icons.search_off_rounded),
-                  
+              ListTile(
+                  leading: const Icon(
+                    Icons.privacy_tip,
+                    size: 35,
+                  ),
+                  title: const Text(
+                    "About",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('App,Info,Build Version,Copyrights'),
                   onTap: () {/* react to the tile being tapped */}),
-                  ListTile(
-                  leading: const Icon(Icons.privacy_tip,size: 35,),
-                  title: const Text("About"),
-                  subtitle: Text('The airplane is only in Act II.'),
-                  
-                  trailing: Icon(Icons.search_off_rounded),
-                  
-                  onTap: () {/* react to the tile being tapped */}),
-                  
             ],
           ),
         ),
