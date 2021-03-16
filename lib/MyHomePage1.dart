@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           image: DecorationImage(
                             fit: BoxFit.fitHeight,
                             image: NetworkImage(
-                              "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
+                              "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
                             ),
                           ),
                         ),

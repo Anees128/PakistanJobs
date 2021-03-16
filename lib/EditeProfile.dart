@@ -77,7 +77,7 @@ class _EditeProfile1State extends State<EditeProfile1> {
                           image: DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
-                                "https://images.pexels.com/photos/3307758/pexels-photo-3307758.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250",
+                                "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
                               ))),
                     ),
                   ],
