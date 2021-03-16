@@ -5,6 +5,14 @@ class Page2 extends StatefulWidget {
   _Page2State createState() => _Page2State();
 }
 
+var titleList = [
+  "Kpk Jobs",
+  "Sindh Jobs",
+  "Punjab Jobs",
+  "Balochistan Jobs",
+  "Fedrel Govt",
+  "Gilgit Baltistan",
+];
 final List<String> _listItem = [
   'images/pak1.png',
   'images/pak2.png',
@@ -43,7 +51,7 @@ class _Page2State extends State<Page2> {
                           (item) => Card(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Colors.grey[300],
+                                color: Colors.black54,
                                 borderRadius: BorderRadius.circular(7),
                                 image: DecorationImage(
                                     image: AssetImage(item),

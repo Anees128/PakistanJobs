@@ -5,19 +5,37 @@ class Page1 extends StatefulWidget {
   _Page1State createState() => _Page1State();
 }
 
-List a = [
-  "https://upload.wikimedia.org/wikipedia/commons/c/c9/KP_logo.png",
-  "https://e7.pngegg.com/pngimages/378/720/png-clipart-government-of-punjab-pakistan-school-education-department-india-pakistan-border-leaf-text.png",
-  "https://pbs.twimg.com/profile_images/1132229943969091584/2LTjiBFC_400x400.jpg",
-  "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228_960_720.jpg",
-  "https://cdn.pixabay.com/photo/2016/02/13/12/26/aurora-1197753_960_720.jpg",
-  "https://cdn.pixabay.com/photo/2016/11/08/05/26/woman-1807533_960_720.jpg",
-  "https://cdn.pixabay.com/photo/2017/12/17/19/08/away-3024773_960_720.jpg",
-];
-
 class _Page1State extends State<Page1> {
+  var titleList = [
+    "Kpk Jobs",
+    "Sindh Jobs",
+    "Punjab Jobs",
+    "Balochistan Jobs",
+    "Fedrel Govt",
+    "Gilgit Baltistan",
+  ];
+  List a = [
+    "https://upload.wikimedia.org/wikipedia/commons/c/c9/KP_logo.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Coat_of_arms_of_Sindh_Province.svg/1200px-Coat_of_arms_of_Sindh_Province.svg.png",
+    "http://i.brecorder.com/wp-content/uploads/2017/07/panjab-govt-1024.jpg",
+    "https://findjobz.pk/wp-content/uploads/2020/08/govt-of-balochistan-jobs.png",
+    "https://establishment.gov.pk/SiteImage/Setting/BQnvBsrr_400x400.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b1/Gilgit_Baltistan_Government_Logo.jpg",
+  ];
+  var desList = [
+    "Push Yourself,Becuse no one else is going to help you.",
+    "Your Limitation- its only your Imagination",
+    "Hard work Can Change the life",
+    "confident is the most beutifull thing That you possess",
+    "A Big Buisniss starts small",
+    "Talent win game, Teamwork and intilligence win Championships",
+    "Some time its small desicion that can chnge your life forever",
+  ];
+
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width * 0.5;
     return SafeArea(
       child: Container(
         padding: EdgeInsets.all(20.0),
@@ -62,20 +80,47 @@ class _Page1State extends State<Page1> {
                 itemCount: a.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      print(titleList[index]);
+                    },
                     child: Card(
                       child: Row(
                         children: [
                           Container(
                             height: 100,
                             width: 100,
-                            child: Image.network(a[index]), 
+                            child: Image.network(a[index]),
                           ),
-                         Padding(padding: EdgeInsets.all(10.0),
-                         child: Column(
-                           crossAxisAlignment: CrossAxisAlignment.start,
-                         ),
-                         )
+                          Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  titleList[index],
+                                  style: TextStyle(
+                                    color: Colors.black54,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Container(
+                                  width: width,
+                                  child: Text(
+                                    desList[index],
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
