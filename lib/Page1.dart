@@ -80,6 +80,7 @@ class _Page1State extends State<Page1> {
                 itemCount: a.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
+                    // Route 
                     onTap: () {
                       print(titleList[index]);
                     },
