@@ -59,31 +59,28 @@ class _Page1State extends State<Page1> {
             ),
             Expanded(
               child: ListView.builder(
-                itemBuilder: (BuildContext ctx, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(20),
+                itemCount: a.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {},
                     child: Card(
-                      shape: Border.all(
-                        width: 5,
-                      ),elevation: 10,
-                   
-                      color: Colors.white,
-                      child: Column(
-                        children: <Widget>[
-                          Image.network(a[index]),
-                          SizedBox(
-                            height: 12,
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 100,
+                            child: Image.network(a[index]), 
                           ),
-                          Icon(
-                            Icons.favorite,
-                            color: Colors.yellow,
-                          ),
+                         Padding(padding: EdgeInsets.all(10.0),
+                         child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                         ),
+                         )
                         ],
                       ),
                     ),
                   );
                 },
-                itemCount: a.length,
               ),
             ),
           ],
