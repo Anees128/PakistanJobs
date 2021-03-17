@@ -26,10 +26,14 @@ final List<String> _listItem = [
 class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         body: SafeArea(
           child: Container(
+            height: height,
+            width: width * 2,
             padding: EdgeInsets.all(2),
             child: Column(
               children: <Widget>[

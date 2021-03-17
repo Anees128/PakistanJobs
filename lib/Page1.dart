@@ -37,13 +37,15 @@ class _Page1State extends State<Page1> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width * 0.5;
     return SafeArea(
-      child: Container(
+      child: Container(height: height * .4,
+      width: width,
         padding: EdgeInsets.all(20.0),
         child: Column(
           children: <Widget>[
             Container(
+              height: height*.3,
               width: double.infinity,
-              height: 220,
+              
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
@@ -51,15 +53,18 @@ class _Page1State extends State<Page1> {
                           'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_the_Prime_Minister_of_Pakistan.svg/1200px-Flag_of_the_Prime_Minister_of_Pakistan.svg.png'),
                       fit: BoxFit.fitHeight)),
               child: Container(
+                height: height,
+                width: width,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomRight,
-                    colors: [
-                      Colors.black.withOpacity(.2),
-                      Colors.black.withOpacity(.2),
-                    ],
-                  ),
+                  borderRadius: BorderRadius.circular(30),
+
+                  // gradient: LinearGradient(
+                  //   begin: Alignment.bottomRight,
+                  //   colors: [
+                  //     Colors.black.withOpacity(.1),
+                  //     Colors.black.withOpacity(.2),
+                  //   ],
+                  // ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -74,13 +79,17 @@ class _Page1State extends State<Page1> {
                   ],
                 ),
               ),
+              
+            ),
+            SizedBox(
+              height:height *.02,
             ),
             Expanded(
               child: ListView.builder(
                 itemCount: a.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    // Route 
+                    // Route
                     onTap: () {
                       print(titleList[index]);
                     },
@@ -88,8 +97,8 @@ class _Page1State extends State<Page1> {
                       child: Row(
                         children: [
                           Container(
-                            height: 100,
-                            width: 100,
+                            height: height * .1,
+                            width: width * .5,
                             child: Image.network(a[index]),
                           ),
                           Padding(
@@ -106,7 +115,8 @@ class _Page1State extends State<Page1> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 10.0,
+                                  height: height * .01,
+                                  width: width,
                                 ),
                                 Container(
                                   width: width,

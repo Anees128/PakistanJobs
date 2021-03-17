@@ -63,22 +63,24 @@ class _EditeProfile1State extends State<EditeProfile1> {
                       width: 130,
                       height: 130,
                       decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 2,
-                                blurRadius: 10,
-                                color: Colors.black.withOpacity(0.1),
-                                offset: Offset(0, 10))
-                          ],
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
-                              ))),
+                        border: Border.all(
+                            width: 4,
+                            color: Theme.of(context).scaffoldBackgroundColor),
+                        boxShadow: [
+                          BoxShadow(
+                              spreadRadius: 2,
+                              blurRadius: 10,
+                              color: Colors.black.withOpacity(0.1),
+                              offset: Offset(0, 10))
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -164,7 +166,7 @@ class _EditeProfile1State extends State<EditeProfile1> {
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: Colors.black,
-            )),
+            ),),
       ),
     );
   }

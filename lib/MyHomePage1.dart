@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:pakistan_jobs2/Profile1.dart';
-
 import 'Page1.dart';
 import 'Page2.dart';
 import 'Page3.dart';
@@ -15,12 +14,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
   PageController _pageController;
+
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
   }
-
   @override
   void dispose() {
     _pageController.dispose();
@@ -29,6 +28,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -40,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.green,
                   fontSize: 25,
                   fontWeight: FontWeight.bold),
-            ), 
-            //this is circle avatar and search 
+            ),
+            //this is circle avatar and search
             actions: <Widget>[
               IconButton(
                   icon: const Icon(
@@ -67,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       child: Container(
                         width: 40,
-                        height: 40,
+                        height: height,
                         decoration: BoxDecoration(
                           border: Border.all(
                               width: 4,

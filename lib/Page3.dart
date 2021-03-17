@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:videos_player/model/control.model.dart';
 import 'package:videos_player/model/video.model.dart';
-import 'package:videos_player/util/theme.util.dart';
 import 'package:videos_player/videos_player.dart';
 
 class Page3 extends StatefulWidget {
@@ -38,7 +36,12 @@ List<Map<String, Object>> _list = [
 class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width ;
     return Container(
+      color: Colors.red,
+      height: height,
+      width: width,
       child: Scaffold(
         body: ListView.builder(
           itemCount: _list.length,
