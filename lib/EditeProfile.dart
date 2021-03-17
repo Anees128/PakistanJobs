@@ -166,7 +166,7 @@ class _EditeProfile1State extends State<EditeProfile1> {
               fontSize: 16,
               fontWeight: FontWeight.bold,
               color: Colors.black,
-            ),),
+            )),
       ),
     );
   }
