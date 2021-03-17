@@ -40,18 +40,18 @@ class _Page2State extends State<Page2> {
                 Expanded(
                   child: GridView.count(
                     crossAxisCount: 3,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 30,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 40,
                     children: _listItem
                         .map(
                           (item) => Card(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Colors.black54,
-                                borderRadius: BorderRadius.circular(7),
+                                // color: Colors.transparent,
+                                // borderRadius: BorderRadius.circular(9),
                                 image: DecorationImage(
                                     image: AssetImage(item),
-                                    fit: BoxFit.contain),
+                                    fit: BoxFit.cover),
                               ),
                             ),
                           ),

@@ -14,13 +14,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       title: 'PakistanJobs2',
       debugShowCheckedModeBanner: false,
       home:SplashContent(),
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        accentColor: Color(0xFF761322),
-      ),
+      
       
     );
   }

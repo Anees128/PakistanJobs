@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'EditeProfile.dart';
 import 'MyHomePage1.dart';
+import 'package:get/get.dart';
 
 class ProfilePage1 extends StatefulWidget {
   @override
@@ -9,12 +9,16 @@ class ProfilePage1 extends StatefulWidget {
 }
 
 class _ProfilePage1State extends State<ProfilePage1> {
+  bool _switchValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: Text("ProfilePage",style:TextStyle(color: Colors.green),),
+        title: Text(
+          "ProfilePage",
+          style: TextStyle(color: Colors.green),
+        ),
         elevation: 1,
         leading: IconButton(
           icon: Icon(
@@ -24,7 +28,9 @@ class _ProfilePage1State extends State<ProfilePage1> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyHomePage()),
+              MaterialPageRoute(
+                builder: (context) => MyHomePage(),
+              ),
             );
           },
         ),
@@ -74,7 +80,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                       bottom: 0,
                       right: 0,
                       child: InkWell(
-                      onTap: () {
+                        onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -115,20 +121,29 @@ class _ProfilePage1State extends State<ProfilePage1> {
                 height: 25,
               ),
               ListTile(
-                
-                  leading: const Icon(
-                    Icons.color_lens_rounded,
-                    size: 38,
-                  ),
-                  title: const Text(
-                    "Dark Theme",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text('Better for sighteye and battery life'),
-                  trailing: Icon(Icons.search_off_rounded),
-                  onTap: () {
-
-                  }),
+                leading: const Icon(
+                  Icons.color_lens_rounded,
+                  size: 38,
+                ),
+                title: const Text(
+                  "Dark Theme",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text('Better for sighteye and battery life'),
+                trailing: Switch(
+                  activeColor: Colors.green,
+                  value: _switchValue,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _switchValue = newValue;
+                    });
+                    if (_switchValue) {
+                      Get.changeTheme(ThemeData.light());
+                    } else
+                      Get.changeTheme(ThemeData.dark());
+                  },
+                ),
+              ),
               ListTile(
                   leading: const Icon(
                     Icons.lock,
@@ -139,6 +154,17 @@ class _ProfilePage1State extends State<ProfilePage1> {
                     style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text('App Terms and Policies'),
+                  onTap: () {/* react to the tile being tapped */}),
+              ListTile(
+                  leading: const Icon(
+                    Icons.share,
+                    size: 35,
+                  ),
+                  title: const Text(
+                    "Share",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('Share App Now'),
                   onTap: () {/* react to the tile being tapped */}),
               ListTile(
                   leading: const Icon(
