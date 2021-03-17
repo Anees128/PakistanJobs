@@ -44,28 +44,28 @@ class _Page1State extends State<Page1> {
           children: <Widget>[
             Container(
               height: height*.3,
-              width: double.infinity,
-              
+              width: width*2,
+            
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(30),
                   image: DecorationImage(
                       image: NetworkImage(
                           'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_the_Prime_Minister_of_Pakistan.svg/1200px-Flag_of_the_Prime_Minister_of_Pakistan.svg.png'),
-                      fit: BoxFit.fitHeight)),
+                      fit: BoxFit.cover),),
               child: Container(
                 height: height,
                 width: width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+                // decoration: BoxDecoration(
+                //   borderRadius: BorderRadius.circular(30),
 
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.bottomRight,
-                  //   colors: [
-                  //     Colors.black.withOpacity(.1),
-                  //     Colors.black.withOpacity(.2),
-                  //   ],
-                  // ),
-                ),
+                //   // gradient: LinearGradient(
+                //   //   begin: Alignment.bottomRight,
+                //   //   colors: [
+                //   //     Colors.black.withOpacity(.1),
+                //   //     Colors.black.withOpacity(.2),
+                //   //   ],
+                //   // ),
+                // ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
@@ -82,7 +82,7 @@ class _Page1State extends State<Page1> {
               
             ),
             SizedBox(
-              height:height *.02,
+              height:height *.01,
             ),
             Expanded(
               child: ListView.builder(
