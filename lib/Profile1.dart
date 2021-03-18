@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 import 'EditeProfile.dart';
+import 'GoogleSignIn.dart';
 import 'MyHomePage1.dart';
 import 'package:get/get.dart';
 
@@ -137,7 +140,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                     setState(() {
                       _switchValue = newValue;
                     });
-                    if ( Get.isDarkMode) {
+                    if (Get.isDarkMode) {
                       Get.changeTheme(ThemeData.light());
                     } else
                       Get.changeTheme(ThemeData.dark());
@@ -188,17 +191,10 @@ class _ProfilePage1State extends State<ProfilePage1> {
                   ),
                   subtitle: Text('More Apps from Developer'),
                   onTap: () {/* react to the tile being tapped */}),
-              ListTile(
-                  leading: const Icon(
-                    Icons.privacy_tip,
-                    size: 35,
-                  ),
-                  title: const Text(
-                    "About",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text('App,Info,Build Version,Copyrights'),
-                  onTap: () {/* react to the tile being tapped */}),
+              SignInButton(Buttons.Google, text: "Sign in with Google",
+                  onPressed: () async {
+                Get.to(googleSignIn());
+              }),
             ],
           ),
         ),
