@@ -131,13 +131,13 @@ class _ProfilePage1State extends State<ProfilePage1> {
                 ),
                 subtitle: Text('Better for sighteye and battery life'),
                 trailing: Switch(
-                  activeColor: Colors.green,
+                  activeColor: Colors.grey,
                   value: _switchValue,
                   onChanged: (newValue) {
                     setState(() {
                       _switchValue = newValue;
                     });
-                    if (_switchValue) {
+                    if ( Get.isDarkMode) {
                       Get.changeTheme(ThemeData.light());
                     } else
                       Get.changeTheme(ThemeData.dark());

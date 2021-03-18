@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pakistan_jobs2/SplashScreen.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +14,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       
       title: 'PakistanJobs2',
       debugShowCheckedModeBanner: false,
