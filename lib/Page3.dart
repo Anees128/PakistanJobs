@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:videos_player/model/video.model.dart';
 import 'package:videos_player/videos_player.dart';
-
+import 'package:get/get.dart';
 class Page3 extends StatefulWidget {
   @override
   _Page3State createState() => _Page3State();

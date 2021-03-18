@@ -165,7 +165,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                     style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text('Share App Now'),
-                  onTap: () {/* react to the tile being tapped */}),
+                  onTap: () {}),
               ListTile(
                   leading: const Icon(
                     Icons.rate_review,

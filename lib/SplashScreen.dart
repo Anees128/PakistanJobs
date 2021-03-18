@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pakistan_jobs2/MyHomePage1.dart';
-
+import 'package:get/get.dart';
 class SplashContent extends StatefulWidget {
   @override
   _SplashContentState createState() => new _SplashContentState();
@@ -14,9 +14,8 @@ class _SplashContentState extends State<SplashContent> {
   void initState() {
     // TODO: implement initState
     Timer(Duration(seconds: 2), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => MyHomePage()),
+      Get.to(
+        MyHomePage()
       );
     });
     super.initState();

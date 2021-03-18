@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 class Page2 extends StatefulWidget {
   @override
   _Page2State createState() => _Page2State();
