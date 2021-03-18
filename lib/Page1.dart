@@ -37,35 +37,25 @@ class _Page1State extends State<Page1> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width * 0.5;
     return SafeArea(
-      child: Container(height: height * .4,
-      width: width,
+      child: Container(
+        height: height * .4,
+        width: width,
         padding: EdgeInsets.all(20.0),
         child: Column(
           children: <Widget>[
             Container(
-              height: height*.3,
-              width: width*2,
-            
+              height: height * .3,
+              width: width * 2,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_the_Prime_Minister_of_Pakistan.svg/1200px-Flag_of_the_Prime_Minister_of_Pakistan.svg.png'),
-                      fit: BoxFit.cover),),
+                borderRadius: BorderRadius.circular(30),
+                image: DecorationImage(
+                    image: NetworkImage(
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_the_Prime_Minister_of_Pakistan.svg/1200px-Flag_of_the_Prime_Minister_of_Pakistan.svg.png'),
+                    fit: BoxFit.cover),
+              ),
               child: Container(
                 height: height,
                 width: width,
-                // decoration: BoxDecoration(
-                //   borderRadius: BorderRadius.circular(30),
-
-                //   // gradient: LinearGradient(
-                //   //   begin: Alignment.bottomRight,
-                //   //   colors: [
-                //   //     Colors.black.withOpacity(.1),
-                //   //     Colors.black.withOpacity(.2),
-                //   //   ],
-                //   // ),
-                // ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
@@ -79,10 +69,9 @@ class _Page1State extends State<Page1> {
                   ],
                 ),
               ),
-              
             ),
             SizedBox(
-              height:height *.01,
+              height: height * .01,
             ),
             Expanded(
               child: ListView.builder(

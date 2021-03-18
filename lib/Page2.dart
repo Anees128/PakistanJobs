@@ -34,31 +34,35 @@ class _Page2State extends State<Page2> {
           child: Container(
             height: height,
             width: width * 2,
-            padding: EdgeInsets.all(2),
+            padding: EdgeInsets.all(10),
             child: Column(
               children: <Widget>[
                 Expanded(
-                  child: GridView.count(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 40,
-                    children: _listItem
-                        .map(
-                          (item) => Card(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                // color: Colors.transparent,
-                                // borderRadius: BorderRadius.circular(9),
-                                image: DecorationImage(
-                                    image: AssetImage(item),
-                                    fit: BoxFit.cover),
+                  child: GridView.builder(
+                    itemCount: _listItem.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 9/11,
+                    ),
+                    itemBuilder: (context,index) => Column(
+                            children: [
+                              Card(
+                                child: Container(
+                                  height: 80,
+                                  width: 80,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(_listItem[index]), fit: BoxFit.cover),
+                                  ),
+                                ),
                               ),
-                            ),
+                              Text("Name"),
+
+
+                            ],
                           ),
                         )
-                        .toList(),
                   ),
-                ),
               ],
             ),
           ),
