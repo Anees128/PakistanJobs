@@ -4,8 +4,25 @@ class Page2 extends StatefulWidget {
   @override
   _Page2State createState() => _Page2State();
 }
+var titleList = [
+    "Kpk Jobs",
+    "Sindh Jobs",
+    "Punjab Jobs",
+    "Balochistan Jobs",
+    "Fedrel Govt",
+    "Gilgit Baltistan",
+    "India",
+    "Paksiran",
+    "Palsjfr",
+    "mnafk",
+    "jafke",
+    "anfke",
+    "nakdw",
+    "amnkfe",
+    "kanfek",
+  ];
 
-final List<String> _listItem = [
+final List<String> _imgList = [
   'images/pak1.png',
   'images/pak2.png',
   'images/pak3.png',
@@ -39,7 +56,7 @@ class _Page2State extends State<Page2> {
               children: <Widget>[
                 Expanded(
                   child: GridView.builder(
-                    itemCount: _listItem.length,
+                    itemCount: _imgList.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       childAspectRatio: 9/11,
@@ -52,11 +69,11 @@ class _Page2State extends State<Page2> {
                                   width: 80,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(_listItem[index]), fit: BoxFit.cover),
+                                        image: AssetImage(_imgList[index]), fit: BoxFit.cover),
                                   ),
                                 ),
                               ),
-                              Text("Name"),
+                              Text(titleList[index]),
 
 
                             ],
