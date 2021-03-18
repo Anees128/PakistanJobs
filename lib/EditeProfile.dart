@@ -71,7 +71,7 @@ class _EditeProfile1State extends State<EditeProfile1> {
                               spreadRadius: 2,
                               blurRadius: 10,
                               color: Colors.black.withOpacity(0.1),
-                              offset: Offset(0, 10))
+                              offset: Offset(0, 10),)
                         ],
                         shape: BoxShape.circle,
                         image: DecorationImage(
