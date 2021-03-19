@@ -116,6 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             bottomNavigationBar: BottomNavyBar(
+            
               selectedIndex: _currentIndex,
               onItemSelected: (index) {
                 setState(() => _currentIndex = index);
@@ -123,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               items: <BottomNavyBarItem>[
                 BottomNavyBarItem(
+                
                   inactiveColor: Colors.grey,
                   activeColor: Colors.blue,
                   title: Text('Home'),

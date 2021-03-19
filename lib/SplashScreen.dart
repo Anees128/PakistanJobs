@@ -14,7 +14,7 @@ class _SplashContentState extends State<SplashContent> {
   void initState() {
     // TODO: implement initState
     Timer(Duration(seconds: 2), () {
-      Get.to(
+      Get.off(
         MyHomePage()
       );
     });
