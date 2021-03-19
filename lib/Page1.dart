@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pakistan_jobs2/GoogleSignIn.dart';
+// import 'package:get/get.dart';
+// import 'package:pakistan_jobs2/GoogleSignIn.dart';
 class Page1 extends StatefulWidget {
   @override
   _Page1State createState() => _Page1State();
