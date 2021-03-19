@@ -41,9 +41,10 @@ class _Page1State extends State<Page1> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width * 0.5;
     return Container(
+      
       height: height * .4,
       width: width,
-      padding: EdgeInsets.all(20.0),
+      // padding: EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
           SizedBox(
@@ -74,6 +75,7 @@ class _Page1State extends State<Page1> {
               overlayShadowSize: 0.7,
             ),
           ),
+          SizedBox(height: 20,),
           // Container(
           //   height: height * .3,
           //   width: width * 2,

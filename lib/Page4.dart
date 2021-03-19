@@ -17,7 +17,7 @@ class _Page4State extends State<Page4> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.only(right: 51.0, top: 500),
+            padding: EdgeInsets.only(right: 51.0, top: 400),
             child: SignInButton(Buttons.Google, text: "Sign in with Google",
                 onPressed: () async {
               Get.to(googleSignIn());

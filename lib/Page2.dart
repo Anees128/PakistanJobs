@@ -40,17 +40,17 @@ final List<String> _imgList = [
   'images/Private Jobs.jpeg',
   'images/POF.jpeg',
   'images/PPSC.jpeg',
-  'images/',
+  'images/POF.jpeg',
   'images/Pakistan Army.jpeg',
   'images/PPSC.jpeg',
   'images/CSS Competitive Examination.jpeg',
   'images/PPSC Lectures.jpeg',
-  "images/",
+  "images/images/POF.jpeg",
   "images/Results.jpeg",
   "images/Admissions Open.jpeg",
   "images/Internship.jpeg",
   "images/ASF.jpeg",
-  "images/Balochistan Jobs.jpeg"
+  "images/Balochistan Jobs.jpeg",
 
 
 ];

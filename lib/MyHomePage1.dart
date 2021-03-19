@@ -87,9 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               shape: BoxShape.circle,
                               image: DecorationImage(
                                 fit: BoxFit.fitHeight,
-                                image: NetworkImage(
-                                  "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
-                                ),
+                                image: AssetImage("images/Psc.jpeg",)
                               ),
                             ),
                           ),
