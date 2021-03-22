@@ -1,6 +1,7 @@
 // import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:get/get.dart';
 
 // import 'package:get/get.dart';
 // import 'package:pakistan_jobs2/GoogleSignIn.dart';
@@ -106,12 +107,29 @@ class _Page1State extends State<Page1> {
           
           Expanded(
             child: ListView.builder(
-              itemCount: a.length,
+              itemCount: titleList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   // Route
                   onTap: () {
-                    print(titleList[index]);
+                    // if(index == 0){
+                    //   Get.to ( );
+                    // }
+                    // if(index==1){
+                    //   Get.to ( );
+                    // }
+                    // if(index==2){
+                    //   Get.to ( );
+                    // }
+                    // if(index==3){
+                    //   Get.to ( );
+                    // }
+                    // if(index==4){
+                    //   Get.to ( );
+                    // }
+                    // if(index==5){
+                    //   Get.to ( );
+                    // }
                   },
                   child: Card(
                     child: Row(

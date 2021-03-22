@@ -12,6 +12,8 @@ class ProfilePage1 extends StatefulWidget {
 }
 
 class _ProfilePage1State extends State<ProfilePage1> {
+ 
+
   bool _switchValue = false;
   @override
   Widget build(BuildContext context) {
@@ -24,19 +26,13 @@ class _ProfilePage1State extends State<ProfilePage1> {
         ),
         elevation: 1,
         leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.green,
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => MyHomePage(),
-              ),
-            );
-          },
-        ),
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.green,
+            ),
+            onPressed: () {
+              Get.to(MyHomePage());
+            }),
         actions: [
           IconButton(
             icon: Icon(
@@ -58,27 +54,29 @@ class _ProfilePage1State extends State<ProfilePage1> {
               Center(
                 child: Stack(
                   children: [
-                    Container(
-                      width: 130,
-                      height: 130,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 3, color: Colors.white),
-                        boxShadow: [
-                          BoxShadow(
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              color: Colors.black.withOpacity(0.1),
-                              offset: Offset(0, 10))
-                        ],
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
+                    InkWell(
+                        child: Container(
+                          width: 130,
+                          height: 130,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 3, color: Colors.white),
+                            boxShadow: [
+                              BoxShadow(
+                                  spreadRadius: 2,
+                                  blurRadius: 10,
+                                  color: Colors.black.withOpacity(0.1),
+                                  offset: Offset(0, 10))
+                            ],
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
+                        onTap: () {}),
                     Positioned(
                       bottom: 0,
                       right: 0,

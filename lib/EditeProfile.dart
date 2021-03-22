@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'Profile1.dart';
 import 'package:get/get.dart';
@@ -9,6 +12,23 @@ class EditeProfile1 extends StatefulWidget {
 }
 
 class _EditeProfile1State extends State<EditeProfile1> {
+  File _image;
+  final picker = ImagePicker();
+
+  Future getImage(ImageSource source) async {
+    final pickedFile = await picker.getImage(source: source);
+
+    setState(() {
+      if (pickedFile != null) {
+        setState(() {
+          _image = File(pickedFile.path);
+        });
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
   bool showPassword = false;
   @override
   Widget build(BuildContext context) {
@@ -26,10 +46,7 @@ class _EditeProfile1State extends State<EditeProfile1> {
             color: Colors.green,
           ),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ProfilePage1()),
-            );
+            Get.to(ProfilePage1());
           },
         ),
         actions: [
@@ -69,16 +86,70 @@ class _EditeProfile1State extends State<EditeProfile1> {
                             color: Theme.of(context).scaffoldBackgroundColor),
                         boxShadow: [
                           BoxShadow(
-                              spreadRadius: 2,
-                              blurRadius: 10,
-                              color: Colors.black.withOpacity(0.1),
-                              offset: Offset(0, 10),)
+                            spreadRadius: 2,
+                            blurRadius: 10,
+                            color: Colors.black.withOpacity(0.1),
+                            offset: Offset(0, 10),
+                          )
                         ],
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(
-                            "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
+                          image: _image == null
+                              ? NetworkImage(
+                                  "http://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg",
+                                )
+                              : FileImage(_image),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: FlatButton(
+                        onPressed: () {
+                          showDialog(
+                              builder: (ctx) {
+                                return SimpleDialog(
+                                  children: [
+                                    SimpleDialogOption(
+                                      child: Text("Choose From Camera"),
+                                      onPressed: () {
+                                        getImage(ImageSource.camera);
+                                      },
+                                    ),
+                                    SimpleDialogOption(
+                                      child: Text("Choose From Gallery"),
+                                      onPressed: () {
+                                        getImage(ImageSource.gallery);
+                                      },
+                                    ),
+                                    SimpleDialogOption(
+                                      child: Text("Cancel"),
+                                      onPressed: () {
+                                        Get.back();
+                                      },
+                                    )
+                                  ],
+                                );
+                              },
+                              context: context);
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 4,
+                              color: Theme.of(context).scaffoldBackgroundColor,
+                            ),
+                            color: Colors.green,
+                          ),
+                          child: Icon(
+                            Icons.camera_alt,
+                            color: Colors.white,
+                            size: 20,
                           ),
                         ),
                       ),
@@ -104,10 +175,7 @@ class _EditeProfile1State extends State<EditeProfile1> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ProfilePage1()),
-                      );
+                      Get.back(result: ProfilePage1);
                     },
                     child: Text("CANCEL",
                         style: TextStyle(
