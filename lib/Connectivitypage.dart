@@ -31,13 +31,16 @@ class _ConnectivitypageState extends State<Connectivitypage> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.red,
+        // backgroundColor: Colors.red,
         body: Center(
-          child: Text(
-            "NO INTRNET CONNECTION:",
-            style: TextStyle(fontWeight: FontWeight.bold),
+          child: new Image(
+            height: height,
+            width: width,
+            image: new AssetImage("images/wifi-off.png"),
           ),
         ),
       ),
