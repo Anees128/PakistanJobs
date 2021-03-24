@@ -204,7 +204,8 @@ class _ProfilePage1State extends State<ProfilePage1> {
                             backgroundColor: Colors.grey,
                             children: [
                               SimpleDialogOption(
-                                  child: Image.asset("images/Reman.png")),
+                                child: Image.asset("images/Vintage Logo.jpg"),
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
