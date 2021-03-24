@@ -35,7 +35,7 @@ class _ConnectivitypageState extends State<Connectivitypage> {
     double width = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: Colors.red,
+       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Center(
           child: new Image(
             height: height,

@@ -10,6 +10,7 @@ class _FedrelJobsState extends State<FedrelJobs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text("Fedrel Jobs"),
       ),
     );

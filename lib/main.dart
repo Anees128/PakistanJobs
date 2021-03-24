@@ -20,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'PakistanJobs2',
+      color: Theme.of(context).scaffoldBackgroundColor,
       debugShowCheckedModeBanner: false,
       home: SplashContent(),
     );

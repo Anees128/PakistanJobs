@@ -10,6 +10,7 @@ class _KPKJobsState extends State<KPKJobs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text("KPk Jobs"),
       ),
     );

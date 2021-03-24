@@ -9,6 +9,9 @@ class _PunjabJobsState extends State<PunjabJobs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Punjab Jobs"),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      ),
       
     );
   }

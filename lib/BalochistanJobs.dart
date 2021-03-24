@@ -10,6 +10,7 @@ class _BalochistanJobsState extends State<BalochistanJobs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text("Balochistan Jobs"),
       ),
     );

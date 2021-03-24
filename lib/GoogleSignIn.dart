@@ -24,9 +24,9 @@ class _googleSignInState extends State<googleSignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           title: Text(this.title),
         ),
-        backgroundColor: Colors.grey[400],
         body: Center(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
