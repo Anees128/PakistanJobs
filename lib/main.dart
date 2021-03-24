@@ -17,7 +17,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'PakistanJobs2',

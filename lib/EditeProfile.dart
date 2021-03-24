@@ -113,19 +113,22 @@ class _EditeProfile1State extends State<EditeProfile1> {
                                 return SimpleDialog(
                                   children: [
                                     SimpleDialogOption(
-                                      child: Text("Choose From Camera"),
+                                      child: Text("",style: TextStyle(fontSize: 10),),
+                                    ),
+                                    SimpleDialogOption(
+                                      child: Text("Choose From Camera",style: TextStyle(fontSize:17),),
                                       onPressed: () {
                                         getImage(ImageSource.camera);
                                       },
                                     ),
                                     SimpleDialogOption(
-                                      child: Text("Choose From Gallery"),
+                                      child: Text("Choose From Gallery",style: TextStyle(fontSize:17),),
                                       onPressed: () {
                                         getImage(ImageSource.gallery);
                                       },
                                     ),
                                     SimpleDialogOption(
-                                      child: Text("Cancel"),
+                                      child: Text("Cancel",style: TextStyle(color: Colors.red),),
                                       onPressed: () {
                                         Get.back();
                                       },

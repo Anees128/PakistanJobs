@@ -2,6 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:get/get.dart';
+import 'package:pakistan_jobs2/BalochistanJobs.dart';
+import 'package:pakistan_jobs2/BaltistanJobs.dart';
+import 'package:pakistan_jobs2/FedrelJobs.dart';
+import 'package:pakistan_jobs2/KPKJobs.dart';
+import 'package:pakistan_jobs2/PunjabJobs.dart';
+import 'package:pakistan_jobs2/SindhJobs.dart';
 
 // import 'package:get/get.dart';
 // import 'package:pakistan_jobs2/GoogleSignIn.dart';
@@ -42,7 +48,6 @@ class _Page1State extends State<Page1> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width * 0.5;
     return Container(
-      
       height: height * .4,
       width: width,
       // padding: EdgeInsets.all(20.0),
@@ -59,14 +64,18 @@ class _Page1State extends State<Page1> {
               dotBgColor: Colors.transparent,
               dotVerticalPadding: 5.0,
               dotPosition: DotPosition.bottomRight,
-              
               images: [
-                Image.asset("images/NAB.jpeg",fit: BoxFit.cover),
-                Image.asset("images/POF.jpeg",fit: BoxFit.cover),
-                Image.asset("images/PAF.jpeg",fit: BoxFit.cover,),
-                Image.asset("images/Courts.jpeg",fit: BoxFit.cover,),
+                Image.asset("images/NAB.jpeg", fit: BoxFit.cover),
+                Image.asset("images/POF.jpeg", fit: BoxFit.cover),
+                Image.asset(
+                  "images/PAF.jpeg",
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  "images/Courts.jpeg",
+                  fit: BoxFit.cover,
+                ),
               ],
-
               showIndicator: false,
               borderRadius: false,
               moveIndicatorFromBottom: 180.0,
@@ -76,7 +85,9 @@ class _Page1State extends State<Page1> {
               overlayShadowSize: 0.7,
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           // Container(
           //   height: height * .3,
           //   width: width * 2,
@@ -104,7 +115,7 @@ class _Page1State extends State<Page1> {
           //     ),
           //   ),
           // ),
-          
+
           Expanded(
             child: ListView.builder(
               itemCount: titleList.length,
@@ -112,24 +123,24 @@ class _Page1State extends State<Page1> {
                 return GestureDetector(
                   // Route
                   onTap: () {
-                    // if(index == 0){
-                    //   Get.to ( );
-                    // }
-                    // if(index==1){
-                    //   Get.to ( );
-                    // }
-                    // if(index==2){
-                    //   Get.to ( );
-                    // }
-                    // if(index==3){
-                    //   Get.to ( );
-                    // }
-                    // if(index==4){
-                    //   Get.to ( );
-                    // }
-                    // if(index==5){
-                    //   Get.to ( );
-                    // }
+                    if (index == 0) {
+                      Get.to(KPKJobs());
+                    }
+                    if (index == 1) {
+                      Get.to(SindhJobs());
+                    }
+                    if (index == 2) {
+                      Get.to(PunjabJobs());
+                    }
+                    if(index==3){
+                      Get.to (BalochistanJobs() );
+                    }
+                    if(index==4){
+                      Get.to (FedrelJobs() );
+                    }
+                    if(index==5){
+                      Get.to (BaltistanJobs());
+                    }
                   },
                   child: Card(
                     child: Row(

@@ -12,8 +12,6 @@ class ProfilePage1 extends StatefulWidget {
 }
 
 class _ProfilePage1State extends State<ProfilePage1> {
- 
-
   bool _switchValue = false;
   @override
   Widget build(BuildContext context) {
@@ -189,6 +187,59 @@ class _ProfilePage1State extends State<ProfilePage1> {
                   ),
                   subtitle: Text('More Apps from Developer'),
                   onTap: () {/* react to the tile being tapped */}),
+              ListTile(
+                  leading: const Icon(
+                    Icons.copyright,
+                    size: 35,
+                  ),
+                  title: const Text(
+                    "About",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('App Info, Build Version, Copyright'),
+                  onTap: () {
+                    showDialog(
+                        builder: (ctx) {
+                          return SimpleDialog(
+                            backgroundColor: Colors.grey,
+                            children: [
+                              SimpleDialogOption(
+                                  child: Image.asset("images/Reman.png")),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              SimpleDialogOption(
+                                child: Text(
+                                  "Choose From Camera",
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                              ),
+                              SimpleDialogOption(
+                                child: Text(
+                                  "Copyright 2020 pakistan jobs by Pakistan",
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                              ),
+                              SimpleDialogOption(
+                                child: Text(
+                                  "All right reserved",
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                              ),
+                              SimpleDialogOption(
+                                child: Text(
+                                  "Ok",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                                onPressed: () {
+                                  Get.back();
+                                },
+                              )
+                            ],
+                          );
+                        },
+                        context: context);
+                  }),
               SignInButton(Buttons.Google, text: "Sign in with Google",
                   onPressed: () async {
                 Get.to(googleSignIn());
