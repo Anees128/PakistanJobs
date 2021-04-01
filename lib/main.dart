@@ -8,7 +8,6 @@ Future main() async {
    await Firebase.initializeApp();
   runApp(MyApp());
 }
-
 class MyApp extends StatefulWidget {
    static final String title = 'Has Internet?';
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:get/get.dart';
-import 'package:pakistan_jobs2/GoogleSignIn.dart';
+// import 'package:pakistan_jobs2/GoogleSignIn.dart';
 
 class Page4 extends StatefulWidget {
   @override
@@ -21,10 +21,12 @@ class _Page4State extends State<Page4> {
             child: SignInButton(Buttons.Google, text: "Sign in with Google",
                 onPressed: () async {
               Get.to(googleSignIn());
-            }),
-          ),
-        ],
-      ),
-    );
-  }
+                          }),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              
+                googleSignIn() {}
 }

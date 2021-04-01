@@ -9,13 +9,13 @@ class Connectivitypage extends StatefulWidget {
 }
 
 class _ConnectivitypageState extends State<Connectivitypage> {
-  StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  final Connectivity _connectivity = Connectivity();
+  StreamSubscription<ConnectivityResult> connectivitySubscription;
+  final Connectivity connectivity = Connectivity();
 
   @override
   void initState() {
-    _connectivitySubscription =
-        _connectivity.onConnectivityChanged.listen((result) {
+    connectivitySubscription =
+        connectivity.onConnectivityChanged.listen((result) {
       print(result);
       if (result == ConnectivityResult.wifi) {
         Get.back();
