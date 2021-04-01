@@ -5,11 +5,12 @@ import 'package:pakistan_jobs2/SplashScreen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
 class MyApp extends StatefulWidget {
-   static final String title = 'Has Internet?';
+  static final String title = 'Has Internet?';
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -19,7 +20,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'PakistanJobs2',
-      color: Theme.of(context).scaffoldBackgroundColor,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Color(0XFFEFF3F6),
+      ),
       debugShowCheckedModeBanner: false,
       home: SplashContent(),
     );

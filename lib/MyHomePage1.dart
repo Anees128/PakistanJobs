@@ -1,15 +1,17 @@
 import 'dart:async';
 
 import 'package:connectivity/connectivity.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:pakistan_jobs2/Connectivitypage.dart';
+import 'package:pakistan_jobs2/Page3.dart';
 import 'package:pakistan_jobs2/Profile1.dart';
 import 'Page1.dart';
 import 'Page2.dart';
-import 'Page4.dart';
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -17,6 +19,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final databaseReference = FirebaseDatabase.instance.reference();
   String connectionStatus = 'Unknown';
   final Connectivity _connectivity = Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
@@ -76,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor:  Color(0XFFEFF3F6),
       appBar: AppBar(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           automaticallyImplyLeading: true,
@@ -147,8 +151,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Page1(),
             Page2(),
-            // Page3(),
-            Page4(),
+           FirebaseDemoScreen(),
+        // Page4()
             //   Container(color: Colors.red,),
             //   Container(color: Colors.green,),
             //   Container(color: Colors.blue,),
@@ -156,6 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavyBar(
+        
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
           setState(() => _currentIndex = index);
@@ -190,7 +195,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Icon(Icons.add),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       foregroundColor: Colors.green,
+      
       onPressed: () {
+        
         Get.to(ProfilePage1());
       },
     ),
