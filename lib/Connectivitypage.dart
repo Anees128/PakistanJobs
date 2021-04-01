@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +14,6 @@ class _ConnectivitypageState extends State<Connectivitypage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen((result) {
       print(result);

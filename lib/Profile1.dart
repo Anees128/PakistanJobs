@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
-import 'EditeProfile.dart';
+import 'Registration.dart';
 import 'package:share/share.dart';
 import 'GoogleSignIn.dart';
 import 'MyHomePage1.dart';
@@ -13,7 +15,6 @@ class ProfilePage1 extends StatefulWidget {
 }
 
 class _ProfilePage1State extends State<ProfilePage1> {
-
 
   bool _switchValue = false;
   @override
@@ -87,7 +88,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EditeProfile1()),
+                                  builder: (context) => Registration1()),
                             );
                           },
                           child: Container(
@@ -246,7 +247,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                                     style: TextStyle(fontSize: 12),
                                   ),
                                 ),
-                                FlatButton(
+                                MaterialButton(
                                   onPressed: () {
                                     Get.back();
                                   },

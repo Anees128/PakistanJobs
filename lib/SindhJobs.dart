@@ -10,8 +10,13 @@ class _SindhJobsState extends State<SindhJobs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: Text("Sindh Jobs"),
+        title: Text(
+          "Sindh Jobs",
+          style: TextStyle(
+              color: Colors.green, fontSize: 23, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }

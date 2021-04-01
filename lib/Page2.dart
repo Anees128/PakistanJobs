@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
+// import 'package:firebase_storage/firebase_storage.dart';
 class Page2 extends StatefulWidget {
   @override
   _Page2State createState() => _Page2State();
@@ -20,10 +21,10 @@ var titleList = [
     "Jobs in Fedral",
     "css -competition",
     "PPSC Lectures",
-    "Intelligence MCQs",
-    "Result",
-    "Admision",
-    "Internship",
+    // "Intelligence MCQs",
+    // "Result",
+    // "Admision",
+    // "Internship",
     "ASF",
     "Balochistan",
     
@@ -45,10 +46,10 @@ final List<String> _imgList = [
   'images/PPSC.jpeg',
   'images/CSS Competitive Examination.jpeg',
   'images/PPSC Lectures.jpeg',
-  "images/images/POF.jpeg",
-  "images/Results.jpeg",
-  "images/Admissions Open.jpeg",
-  "images/Internship.jpeg",
+  // "images/images/POF.jpeg",
+  // "images/Results.jpeg",
+  // "images/Admissions Open.jpeg",
+  // "images/Internship.jpeg",
   "images/ASF.jpeg",
   "images/Balochistan Jobs.jpeg",
 

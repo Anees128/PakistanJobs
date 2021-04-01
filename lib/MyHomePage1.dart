@@ -9,7 +9,7 @@ import 'package:pakistan_jobs2/Connectivitypage.dart';
 import 'package:pakistan_jobs2/Profile1.dart';
 import 'Page1.dart';
 import 'Page2.dart';
-import 'Page3.dart';
+// import 'Page3.dart';
 import 'Page4.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Page1(),
               Page2(),
-              Page3(),
+              // Page3(),
               Page4(),
               //   Container(color: Colors.red,),
               //   Container(color: Colors.green,),

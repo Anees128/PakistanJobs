@@ -1,19 +1,43 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'Profile1.dart';
 import 'package:get/get.dart';
 
-class EditeProfile1 extends StatefulWidget {
+class Registration1 extends StatefulWidget {
   @override
-  _EditeProfile1State createState() => _EditeProfile1State();
+  _Registration1State createState() => _Registration1State();
 }
 
-class _EditeProfile1State extends State<EditeProfile1> {
+class _Registration1State extends State<Registration1> {
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  final fb = FirebaseDatabase.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  TextEditingController name = new TextEditingController();
+  TextEditingController pass = new TextEditingController();
+  TextEditingController email = new TextEditingController();
+  final firestoreInstance = FirebaseFirestore.instance;
+
   File _image;
   final picker = ImagePicker();
+
+  registerUser() {
+    if (name.text != null && pass.text != null && email.text != null)
+     {
+      firestoreInstance.collection("users").add({
+        "name": "${name.text}",
+        "password": "${pass.text}",
+        "email": "${email.text}",
+      }).then((value) {
+        print(value.id);
+      });
+    }
+  }
 
   Future getImage(ImageSource source) async {
     final pickedFile = await picker.getImage(source: source);
@@ -36,7 +60,7 @@ class _EditeProfile1State extends State<EditeProfile1> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(
-          "Edite Profile",
+          "Registration",
           style: TextStyle(color: Colors.green),
         ),
         elevation: 1,
@@ -67,10 +91,6 @@ class _EditeProfile1State extends State<EditeProfile1> {
           },
           child: ListView(
             children: [
-              // Text(
-              //   "Edit Profile",
-              //   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-              // ),
               SizedBox(
                 height: 5,
               ),
@@ -106,29 +126,41 @@ class _EditeProfile1State extends State<EditeProfile1> {
                     Positioned(
                       bottom: 0,
                       right: 0,
-                      child: FlatButton(
+                      child: TextButton(
                         onPressed: () {
                           showDialog(
                               builder: (ctx) {
                                 return SimpleDialog(
                                   children: [
                                     SimpleDialogOption(
-                                      child: Text("",style: TextStyle(fontSize: 10),),
+                                      child: Text(
+                                        "",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
                                     ),
                                     SimpleDialogOption(
-                                      child: Text("Choose From Camera",style: TextStyle(fontSize:17),),
+                                      child: Text(
+                                        "Choose From Camera",
+                                        style: TextStyle(fontSize: 17),
+                                      ),
                                       onPressed: () {
                                         getImage(ImageSource.camera);
                                       },
                                     ),
                                     SimpleDialogOption(
-                                      child: Text("Choose From Gallery",style: TextStyle(fontSize:17),),
+                                      child: Text(
+                                        "Choose From Gallery",
+                                        style: TextStyle(fontSize: 17),
+                                      ),
                                       onPressed: () {
                                         getImage(ImageSource.gallery);
                                       },
                                     ),
                                     SimpleDialogOption(
-                                      child: Text("Cancel",style: TextStyle(color: Colors.red),),
+                                      child: Text(
+                                        "Cancel",
+                                        style: TextStyle(color: Colors.red),
+                                      ),
                                       onPressed: () {
                                         Get.back();
                                       },
@@ -163,31 +195,71 @@ class _EditeProfile1State extends State<EditeProfile1> {
               SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "", false),
-              buildTextField("E-mail", "", false),
-              buildTextField("Password", "", true),
-              // buildTextField("Location", "", false),
+              TextFormField(
+                  controller: name,
+                  onChanged: (val) {
+                    name.text = val;
+                  },
+                  decoration: new InputDecoration(
+                    hintText: 'User Name',
+                    labelText: 'Enter your name',
+                    labelStyle: TextStyle(
+                      color: Colors.purple,
+                    ),
+                    icon: new Icon(Icons.person),
+                  )),
+              TextFormField(
+                  onChanged: (val) {
+                    email.text = val;
+                  },
+                  controller: email,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: new InputDecoration(
+                    hintText: 'email@example.com',
+                    labelText: 'Email Address',
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                    icon: new Icon(Icons.email),
+                  )),
+              TextFormField(
+                  onChanged: (val) {
+                    pass.text = val;
+                  },
+                  controller: pass,
+                  obscureText: true, // Use secure text for passwords.
+                  decoration: new InputDecoration(
+                      hintText: 'Password',
+                      labelText: 'Enter your password',
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                      ),
+                      icon: new Icon(Icons.lock))),
               SizedBox(
                 height: 35,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  OutlineButton(
+                  MaterialButton(
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     onPressed: () {
                       Get.back(result: ProfilePage1);
                     },
-                    child: Text("CANCEL",
-                        style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: 2.2,
-                            color: Colors.black)),
+                    child: Text(
+                      "CANCEL",
+                      style: TextStyle(
+                          fontSize: 14,
+                          letterSpacing: 2.2,
+                          color: Colors.black),
+                    ),
                   ),
-                  RaisedButton(
-                    onPressed: () {},
+                  MaterialButton(
+                    onPressed: () async {
+                      registerUser();
+                    },
                     color: Colors.green,
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     elevation: 2,
@@ -200,45 +272,12 @@ class _EditeProfile1State extends State<EditeProfile1> {
                           letterSpacing: 2.2,
                           color: Colors.white),
                     ),
-                  )
+                  ),
                 ],
               )
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget buildTextField(
-      String labelText, String placeholder, bool isPasswordTextField) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 35.0),
-      child: TextField(
-        obscureText: isPasswordTextField ? showPassword : false,
-        decoration: InputDecoration(
-            suffixIcon: isPasswordTextField
-                ? IconButton(
-                    onPressed: () {
-                      setState(() {
-                        showPassword = !showPassword;
-                      });
-                    },
-                    icon: Icon(
-                      Icons.remove_red_eye,
-                      color: Colors.grey,
-                    ),
-                  )
-                : null,
-            contentPadding: EdgeInsets.only(bottom: 3),
-            labelText: labelText,
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: placeholder,
-            hintStyle: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
       ),
     );
   }

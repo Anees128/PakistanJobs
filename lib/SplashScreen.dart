@@ -11,7 +11,6 @@ class SplashContent extends StatefulWidget {
 class _SplashContentState extends State<SplashContent> {
   @override
   void initState() {
-    // TODO: implement initState
     Timer(Duration(seconds: 2), () {
       Get.off(MyHomePage());
     });
