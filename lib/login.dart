@@ -16,6 +16,9 @@ class LoginPage1State extends State<LoginPage1> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(
+                height: 90,
+              ),
               Text("Welcome"),
               Text(
                 "Sign In",
@@ -45,8 +48,9 @@ class LoginPage1State extends State<LoginPage1> {
                           spreadRadius: 3.0)
                     ]),
                 child: TextField(
+                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                      border: InputBorder.none, hintText: "Admin@live.com"),
+                      border: InputBorder.none, hintText: "Please Enter Email"),
                 ),
               ),
               SizedBox(
@@ -75,7 +79,6 @@ class LoginPage1State extends State<LoginPage1> {
                 child: TextField(
                   obscureText: true,
                   decoration: InputDecoration(
-                   
                     hintText: "********",
                   ),
                 ),

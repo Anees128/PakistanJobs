@@ -24,6 +24,8 @@ class _Registration1State extends State<Registration1> {
   TextEditingController name = new TextEditingController();
   TextEditingController email = new TextEditingController();
   TextEditingController number = new TextEditingController();
+  TextEditingController pass = new TextEditingController();
+
   final firestoreInstance = FirebaseFirestore.instance;
   File _image;
   // List<Data> dataList = [];
@@ -66,46 +68,46 @@ class _Registration1State extends State<Registration1> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(38.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                child: IconButton(
-                  padding: EdgeInsets.only(right: 50),
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: Colors.green,
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: IconButton(
+                    padding: EdgeInsets.only(right: 50),
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.green,
+                    ),
+                    onPressed: () {
+                      Get.off(ProfilePage1());
+                    },
                   ),
-                  onPressed: () {
-                    Get.off(ProfilePage1());
-                  },
                 ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text("Welcome"),
-              Text(
-                "Sign Up",
-                style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900),
-              ),
-              SizedBox(
-                height: 40.0,
-              ),
-              Text(
-                "Email",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Form(
-                key: _formKey,
-                child: Container(
+                SizedBox(
+                  height: 30,
+                ),
+                Text("Welcome"),
+                Text(
+                  "Sign Up",
+                  style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900),
+                ),
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text(
+                  "Your Name",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
                   decoration: BoxDecoration(
                       color: Color(0XFFEFF3F6),
                       borderRadius: BorderRadius.circular(100.0),
@@ -122,6 +124,13 @@ class _Registration1State extends State<Registration1> {
                             spreadRadius: 3.0)
                       ]),
                   child: TextFormField(
+                    controller: name,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please Enter Name';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                         border: InputBorder.none,
@@ -129,22 +138,21 @@ class _Registration1State extends State<Registration1> {
                         hintStyle: TextStyle(color: Colors.grey)),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 40.0,
-              ),
-              Text(
-                "Number",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                decoration: BoxDecoration(
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text(
+                  "Email",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
+                  decoration: BoxDecoration(
                     color: Color(0XFFEFF3F6),
                     borderRadius: BorderRadius.circular(100.0),
                     boxShadow: [
@@ -158,89 +166,160 @@ class _Registration1State extends State<Registration1> {
                           offset: Offset(-6, -2),
                           blurRadius: 6.0,
                           spreadRadius: 3.0)
-                    ]),
-                child: TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                    border: InputBorder.none,
-                    hintText: "Enter your Number",
-                    hintStyle: TextStyle(color: Colors.grey),
+                    ],
+                  ),
+                  child: TextFormField(
+                    controller: email,
+                    keyboardType: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please Enter Email';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      border: InputBorder.none,
+                      hintText: "Enter your Email",
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 40.0,
-              ),
-              Text(
-                "Password",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Color(0XFFEFF3F6),
-                    borderRadius: BorderRadius.circular(100.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.1),
-                          offset: Offset(6, 2),
-                          blurRadius: 4.0,
-                          spreadRadius: 3.0),
-                      BoxShadow(
-                          color: Color.fromRGBO(255, 255, 255, 0.9),
-                          offset: Offset(-6, -2),
-                          blurRadius: 6.0,
-                          spreadRadius: 3.0)
-                    ]),
-                child: TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                    border: InputBorder.none,
-                    hintText: "Enter Password",
-                    hintStyle: TextStyle(color: Colors.grey),
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text(
+                  "Number",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0XFFEFF3F6),
+                      borderRadius: BorderRadius.circular(100.0),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.1),
+                            offset: Offset(6, 2),
+                            blurRadius: 4.0,
+                            spreadRadius: 3.0),
+                        BoxShadow(
+                            color: Color.fromRGBO(255, 255, 255, 0.9),
+                            offset: Offset(-6, -2),
+                            blurRadius: 6.0,
+                            spreadRadius: 3.0)
+                      ]),
+                  child: TextFormField(
+                    controller: number,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please Enter Number';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      border: InputBorder.none,
+                      hintText: "Enter Number",
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 40.0,
-              ),
-              Text("Forgot Password ?", style: TextStyle(color: Colors.red)),
-              SizedBox(
-                height: 20.0,
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(15.0),
-                      child: Center(
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(color: Colors.white, fontSize: 16.0),
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text(
+                  "Password",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0XFFEFF3F6),
+                      borderRadius: BorderRadius.circular(100.0),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.1),
+                            offset: Offset(6, 2),
+                            blurRadius: 4.0,
+                            spreadRadius: 3.0),
+                        BoxShadow(
+                            color: Color.fromRGBO(255, 255, 255, 0.9),
+                            offset: Offset(-6, -2),
+                            blurRadius: 6.0,
+                            spreadRadius: 3.0)
+                      ]),
+                  child: TextFormField(
+                    obscureText: true,
+                    controller: pass,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please Enter Password';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      border: InputBorder.none,
+                      hintText: "Enter Password",
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text("Forgot Password ?", style: TextStyle(color: Colors.red)),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: MaterialButton(
+                        onPressed: () async {
+                          if (!_formKey.currentState.validate()) {
+                            return;
+                          }
+                          _formKey.currentState.save();
+                          registerUser();
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(15.0),
+                          child: Center(
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 16.0),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Color(0XFFFF27B0),
+                              borderRadius: BorderRadius.circular(100.0),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0XFFFF27B0),
+                                    offset: Offset(6, 2),
+                                    blurRadius: 1.0,
+                                    spreadRadius: 2.0),
+                              ]),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          color: Color(0XFFFF27B0),
-                          borderRadius: BorderRadius.circular(100.0),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0XFFFF27B0),
-                                offset: Offset(6, 2),
-                                blurRadius: 1.0,
-                                spreadRadius: 2.0),
-                          ]),
-                    ),
-                  )
-                ],
-              )
-            ],
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
