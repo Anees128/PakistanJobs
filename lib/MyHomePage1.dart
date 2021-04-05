@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Color(0XFFEFF3F6),
       appBar: AppBar(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor: Colors.white,
           automaticallyImplyLeading: true,
           title: Text(
             "Pakistan Jobs2",
@@ -111,20 +111,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Container(
                       padding: EdgeInsets.all(10.0),
-                      child:Icon(Icons.person),
-                      
-                      
+                      child: Icon(Icons.person,color: Colors.grey,),
                       decoration: BoxDecoration(
-                        color: Color(0XFFFF27B0),
-                        
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(40),
-                        // boxShadow: [
-                        //   BoxShadow(
-                        //       color: Color(0XFFFF27B0),
-                        //       offset: Offset(6, 2),
-                        //       blurRadius: 1.0,
-                        //       spreadRadius: 2.0),
-                        // ],
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.white,
+                              offset: Offset(6, 2),
+                              blurRadius: 1.0,
+                              spreadRadius: 2.0),
+                        ],
                       ),
                     ),
                   ),

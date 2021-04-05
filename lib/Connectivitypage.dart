@@ -33,13 +33,15 @@ class _ConnectivitypageState extends State<Connectivitypage> {
     double width = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Center(
           child: new Image(
             height: height,
             width: width,
             image: new AssetImage("images/wifi-off.png"),
+            
           ),
+          
         ),
       ),
     );

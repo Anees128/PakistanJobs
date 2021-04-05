@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pakistan_jobs2/MyHomePage1.dart';
 import 'package:get/get.dart';
-import 'package:pakistan_jobs2/Page4.dart';
+// import 'package:pakistan_jobs2/Page4.dart';
 
 class SplashContent extends StatefulWidget {
   @override
@@ -22,7 +22,9 @@ class _SplashContentState extends State<SplashContent> {
   Widget build(BuildContext context) {
     return new Center(
       child: new Image(
-        image: new AssetImage("images/imafes.jpg"),
+        image: new AssetImage(
+          "images/imafes.jpg",
+        ),
       ),
     );
   }

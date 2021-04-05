@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pakistan_jobs2/Registration.dart';
+import 'package:pakistan_jobs2/SignUpPage.dart';
 import 'package:share/share.dart';
 
 import 'MyHomePage1.dart';
@@ -34,11 +34,11 @@ class _ProfilePage1State extends State<ProfilePage1> {
           MaterialButton(
             child: Text("Log out"),
             onPressed: () {},
-          )
+          ),
         ],
       ),
       body: Container(
-        padding: EdgeInsets.only(left: 16, top: 25, right: 16),
+        padding: EdgeInsets.only(left: 16, top: 10, right: 16),
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -49,6 +49,8 @@ class _ProfilePage1State extends State<ProfilePage1> {
                 child: Stack(
                   children: [
                     InkWell(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 200.0),
                         child: Container(
                           width: 130,
                           height: 130,
@@ -56,10 +58,11 @@ class _ProfilePage1State extends State<ProfilePage1> {
                             border: Border.all(width: 3, color: Colors.white),
                             boxShadow: [
                               BoxShadow(
-                                  spreadRadius: 2,
-                                  blurRadius: 10,
-                                  color: Colors.black.withOpacity(0.1),
-                                  offset: Offset(0, 10))
+                                spreadRadius: 2,
+                                blurRadius: 10,
+                                color: Colors.black.withOpacity(0.1),
+                                offset: Offset(0, 10),
+                              ),
                             ],
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -70,17 +73,22 @@ class _ProfilePage1State extends State<ProfilePage1> {
                             ),
                           ),
                         ),
+                      ),
+                      onTap: () {
+                        Get.to(
+                          Registration1(),
+                        );
+                      },
+                    ),
+                    //this is for upload image
+                    Positioned(
+                      bottom: 0,
+                      right: 200,
+                      child: InkWell(
                         onTap: () {
                           Get.to(
                             Registration1(),
                           );
-                        }),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: InkWell(
-                        onTap: () {
-                          Get.to(Registration1());
                         },
                         child: Container(
                           height: 40,
@@ -94,7 +102,7 @@ class _ProfilePage1State extends State<ProfilePage1> {
                             color: Colors.green,
                           ),
                           child: Icon(
-                            Icons.edit,
+                            Icons.camera_enhance_outlined,
                             color: Colors.white,
                             size: 20,
                           ),

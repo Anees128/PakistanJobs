@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pakistan_jobs2/Profile1.dart';
-import 'package:pakistan_jobs2/login.dart';
+import 'package:pakistan_jobs2/SignInPage.dart';
 // import 'Profile1.dart';
 import 'package:get/get.dart';
 
@@ -23,22 +23,22 @@ class _Registration1State extends State<Registration1> {
   final FirebaseAuth auth = FirebaseAuth.instance;
   TextEditingController name = new TextEditingController();
   TextEditingController email = new TextEditingController();
-  TextEditingController number = new TextEditingController();
+  // TextEditingController number = new TextEditingController();
   TextEditingController pass = new TextEditingController();
 
   final firestoreInstance = FirebaseFirestore.instance;
   File _image;
-  // List<Data> dataList = [];
+
   final picker = ImagePicker();
 
   bool get success => null;
 
   registerUser() {
-    if (name.text != null && email.text != null && number.text != null) {
+    if (name.text != null && email.text != null) {
       firestoreInstance.collection("users").add({
         "Name": name.text,
         "Email": email.text,
-        "Number": number.text,
+        // "Number": number.text,
         // "Country": country.text,
       }).then((value) {
         print(value.id);
@@ -69,6 +69,7 @@ class _Registration1State extends State<Registration1> {
         child: Padding(
           padding: const EdgeInsets.all(38.0),
           child: Form(
+          
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -87,7 +88,7 @@ class _Registration1State extends State<Registration1> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 Text("Welcome"),
                 Text(
@@ -124,6 +125,7 @@ class _Registration1State extends State<Registration1> {
                             spreadRadius: 3.0)
                       ]),
                   child: TextFormField(
+                    autovalidateMode: AutovalidateMode.always,
                     controller: name,
                     validator: (value) {
                       if (value.isEmpty) {
@@ -139,7 +141,7 @@ class _Registration1State extends State<Registration1> {
                   ),
                 ),
                 SizedBox(
-                  height: 40.0,
+                  height: 10.0,
                 ),
                 Text(
                   "Email",
@@ -170,6 +172,7 @@ class _Registration1State extends State<Registration1> {
                   ),
                   child: TextFormField(
                     controller: email,
+                    autovalidateMode: AutovalidateMode.always,
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value.isEmpty) {
@@ -186,52 +189,38 @@ class _Registration1State extends State<Registration1> {
                   ),
                 ),
                 SizedBox(
-                  height: 40.0,
+                  height: 10.0,
                 ),
-                Text(
-                  "Number",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
-                ),
+                // Text(
+                //   "Number",
+                //   style: TextStyle(
+                //       color: Colors.black,
+                //       fontSize: 17,
+                //       fontWeight: FontWeight.bold),
+                // ),
+                // SizedBox(
+                //   height: 10,
+                // ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //       color: Color(0XFFEFF3F6),
+                //       borderRadius: BorderRadius.circular(100.0),
+                //       boxShadow: [
+                //         BoxShadow(
+                //             color: Color.fromRGBO(0, 0, 0, 0.1),
+                //             offset: Offset(6, 2),
+                //             blurRadius: 4.0,
+                //             spreadRadius: 3.0),
+                //         BoxShadow(
+                //             color: Color.fromRGBO(255, 255, 255, 0.9),
+                //             offset: Offset(-6, -2),
+                //             blurRadius: 6.0,
+                //             spreadRadius: 3.0)
+                //       ]),
+
+                // ),
                 SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0XFFEFF3F6),
-                      borderRadius: BorderRadius.circular(100.0),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.1),
-                            offset: Offset(6, 2),
-                            blurRadius: 4.0,
-                            spreadRadius: 3.0),
-                        BoxShadow(
-                            color: Color.fromRGBO(255, 255, 255, 0.9),
-                            offset: Offset(-6, -2),
-                            blurRadius: 6.0,
-                            spreadRadius: 3.0)
-                      ]),
-                  child: TextFormField(
-                    controller: number,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please Enter Number';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                      border: InputBorder.none,
-                      hintText: "Enter Number",
-                      hintStyle: TextStyle(color: Colors.grey),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 40.0,
+                  height: 10.0,
                 ),
                 Text(
                   "Password",
@@ -260,6 +249,7 @@ class _Registration1State extends State<Registration1> {
                             spreadRadius: 3.0)
                       ]),
                   child: TextFormField(
+                    autovalidateMode: AutovalidateMode.always,
                     obscureText: true,
                     controller: pass,
                     validator: (value) {
@@ -279,7 +269,10 @@ class _Registration1State extends State<Registration1> {
                 SizedBox(
                   height: 40.0,
                 ),
-                Text("Forgot Password ?", style: TextStyle(color: Colors.red)),
+                // Text(
+                //   "Forgot Password ?",
+                //   style: TextStyle(color: Colors.red),
+                // ),
                 SizedBox(
                   height: 20.0,
                 ),
@@ -292,6 +285,7 @@ class _Registration1State extends State<Registration1> {
                             return;
                           }
                           _formKey.currentState.save();
+                         
                           registerUser();
                         },
                         child: Container(
@@ -304,20 +298,21 @@ class _Registration1State extends State<Registration1> {
                             ),
                           ),
                           decoration: BoxDecoration(
-                              color: Color(0XFFFF27B0),
-                              borderRadius: BorderRadius.circular(100.0),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color(0XFFFF27B0),
-                                    offset: Offset(6, 2),
-                                    blurRadius: 1.0,
-                                    spreadRadius: 2.0),
-                              ]),
+                            color: Color(0XFFFF27B0),
+                            borderRadius: BorderRadius.circular(100.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color(0XFFFF27B0),
+                                  offset: Offset(2, 2),
+                                  // blurRadius: 1.0,
+                                  spreadRadius: 2.0),
+                            ],
+                          ),
                         ),
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
