@@ -69,7 +69,6 @@ class _Registration1State extends State<Registration1> {
         child: Padding(
           padding: const EdgeInsets.all(38.0),
           child: Form(
-          
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -255,6 +254,8 @@ class _Registration1State extends State<Registration1> {
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Please Enter Password';
+                      } else if (value.length < 8) {
+                        return 'Pass must be at least 8 characters';
                       }
                       return null;
                     },
@@ -285,7 +286,7 @@ class _Registration1State extends State<Registration1> {
                             return;
                           }
                           _formKey.currentState.save();
-                         
+
                           registerUser();
                         },
                         child: Container(
