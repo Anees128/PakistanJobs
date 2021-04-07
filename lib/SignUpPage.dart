@@ -1,22 +1,18 @@
-import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:pakistan_jobs2/Profile1.dart';
 import 'package:pakistan_jobs2/SignInPage.dart';
-// import 'Profile1.dart';
 import 'package:get/get.dart';
 
-class Registration1 extends StatefulWidget {
+class SignUpPage1 extends StatefulWidget {
   @override
-  _Registration1State createState() => _Registration1State();
+  _SignUpPage1State createState() => _SignUpPage1State();
 }
 
-class _Registration1State extends State<Registration1> {
+class _SignUpPage1State extends State<SignUpPage1> {
   final _formKey = GlobalKey<FormState>();
   final fb = FirebaseDatabase.instance;
 
@@ -27,9 +23,6 @@ class _Registration1State extends State<Registration1> {
   TextEditingController pass = new TextEditingController();
 
   final firestoreInstance = FirebaseFirestore.instance;
-  File _image;
-
-  final picker = ImagePicker();
 
   bool get success => null;
 
@@ -38,30 +31,14 @@ class _Registration1State extends State<Registration1> {
       firestoreInstance.collection("users").add({
         "Name": name.text,
         "Email": email.text,
-        // "Number": number.text,
-        // "Country": country.text,
       }).then((value) {
         print(value.id);
-        Get.to(LoginPage1());
+        Get.to(SignInPage1());
       });
     }
   }
 
-  Future getImage(ImageSource source) async {
-    final pickedFile = await picker.getImage(source: source);
-
-    setState(() {
-      if (pickedFile != null) {
-        setState(() {
-          _image = File(pickedFile.path);
-        });
-      } else {
-        print('No image selected.');
-      }
-    });
-  }
-
-  // bool showPassword = false;
+  bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,20 +86,21 @@ class _Registration1State extends State<Registration1> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0XFFEFF3F6),
+                      color: Color(0XFFa8ccd7),
                       borderRadius: BorderRadius.circular(100.0),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.1),
-                            offset: Offset(6, 2),
-                            blurRadius: 6.0,
-                            spreadRadius: 3.0),
-                        BoxShadow(
-                            color: Color.fromRGBO(255, 255, 255, 0.9),
-                            offset: Offset(-6, -2),
-                            blurRadius: 6.0,
-                            spreadRadius: 3.0)
-                      ]),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                      //       offset: Offset(6, 2),
+                      //       blurRadius: 6.0,
+                      //       spreadRadius: 3.0),
+                      //   BoxShadow(
+                      //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                      //       offset: Offset(-6, -2),
+                      //       blurRadius: 6.0,
+                      //       spreadRadius: 3.0)
+                      // ]
+                      ),
                   child: TextFormField(
                     autovalidateMode: AutovalidateMode.always,
                     controller: name,
@@ -154,20 +132,20 @@ class _Registration1State extends State<Registration1> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0XFFEFF3F6),
+                   color: Color(0XFFa8ccd7),
                     borderRadius: BorderRadius.circular(100.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.1),
-                          offset: Offset(6, 2),
-                          blurRadius: 4.0,
-                          spreadRadius: 3.0),
-                      BoxShadow(
-                          color: Color.fromRGBO(255, 255, 255, 0.9),
-                          offset: Offset(-6, -2),
-                          blurRadius: 6.0,
-                          spreadRadius: 3.0)
-                    ],
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                    //       offset: Offset(6, 2),
+                    //       blurRadius: 4.0,
+                    //       spreadRadius: 3.0),
+                    //   BoxShadow(
+                    //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                    //       offset: Offset(-6, -2),
+                    //       blurRadius: 6.0,
+                    //       spreadRadius: 3.0)
+                    // ],
                   ),
                   child: TextFormField(
                     controller: email,
@@ -187,37 +165,7 @@ class _Registration1State extends State<Registration1> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                // Text(
-                //   "Number",
-                //   style: TextStyle(
-                //       color: Colors.black,
-                //       fontSize: 17,
-                //       fontWeight: FontWeight.bold),
-                // ),
-                // SizedBox(
-                //   height: 10,
-                // ),
-                // Container(
-                //   decoration: BoxDecoration(
-                //       color: Color(0XFFEFF3F6),
-                //       borderRadius: BorderRadius.circular(100.0),
-                //       boxShadow: [
-                //         BoxShadow(
-                //             color: Color.fromRGBO(0, 0, 0, 0.1),
-                //             offset: Offset(6, 2),
-                //             blurRadius: 4.0,
-                //             spreadRadius: 3.0),
-                //         BoxShadow(
-                //             color: Color.fromRGBO(255, 255, 255, 0.9),
-                //             offset: Offset(-6, -2),
-                //             blurRadius: 6.0,
-                //             spreadRadius: 3.0)
-                //       ]),
-
-                // ),
+                
                 SizedBox(
                   height: 10.0,
                 ),
@@ -233,21 +181,23 @@ class _Registration1State extends State<Registration1> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0XFFEFF3F6),
+                     color: Color(0XFFa8ccd7),
                       borderRadius: BorderRadius.circular(100.0),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.1),
-                            offset: Offset(6, 2),
-                            blurRadius: 4.0,
-                            spreadRadius: 3.0),
-                        BoxShadow(
-                            color: Color.fromRGBO(255, 255, 255, 0.9),
-                            offset: Offset(-6, -2),
-                            blurRadius: 6.0,
-                            spreadRadius: 3.0)
-                      ]),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                      //       offset: Offset(6, 2),
+                      //       blurRadius: 4.0,
+                      //       spreadRadius: 3.0),
+                      //   BoxShadow(
+                      //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                      //       offset: Offset(-6, -2),
+                      //       blurRadius: 6.0,
+                      //       spreadRadius: 3.0)
+                      // ]
+                      ),
                   child: TextFormField(
+                    
                     autovalidateMode: AutovalidateMode.always,
                     obscureText: true,
                     controller: pass,
@@ -260,20 +210,18 @@ class _Registration1State extends State<Registration1> {
                       return null;
                     },
                     decoration: InputDecoration(
+                      
                       contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       border: InputBorder.none,
                       hintText: "Enter Password",
+                      // icon: Icon(Icons.visibility_off),
                       hintStyle: TextStyle(color: Colors.grey),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 40.0,
+                  height: 20.0,
                 ),
-                // Text(
-                //   "Forgot Password ?",
-                //   style: TextStyle(color: Colors.red),
-                // ),
                 SizedBox(
                   height: 20.0,
                 ),
@@ -313,6 +261,18 @@ class _Registration1State extends State<Registration1> {
                       ),
                     ),
                   ],
+                ),
+                SizedBox(height: 0.7),
+                MaterialButton(
+                  onPressed: () {
+                    Get.off(SignInPage1());
+                  },
+                  child: Container(
+                    padding: EdgeInsets.only(left: 30),
+                    height: 30,
+                    width: 300,
+                    child: Text("don't have account?  SignIn"),
+                  ),
                 ),
               ],
             ),

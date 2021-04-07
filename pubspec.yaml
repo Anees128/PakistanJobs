@@ -47,7 +47,7 @@ dependencies:
   lite_rolling_switch: ^0.1.1
   firebase_analytics: ^5.0.6
   floating_action_bubble: ^1.0.9
-  neumorphic: any
+  flutter_neumorphic: ^3.0.3
   share: ^0.6.5
   image_picker:
 dev_dependencies:

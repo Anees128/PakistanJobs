@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
-class LoginPage1 extends StatefulWidget {
+import 'SignUpPage.dart';
+
+class SignInPage1 extends StatefulWidget {
   @override
-  LoginPage1State createState() => LoginPage1State();
+  SignInPage1State createState() => SignInPage1State();
 }
 
-class LoginPage1State extends State<LoginPage1> {
+class SignInPage1State extends State<SignInPage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +21,7 @@ class LoginPage1State extends State<LoginPage1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 90,
+                height: 60,
               ),
               Text("Welcome"),
               Text(
@@ -40,20 +43,20 @@ class LoginPage1State extends State<LoginPage1> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: Color(0XFFEFF3F6),
+                  color: Color(0XFFa8ccd7),
                   borderRadius: BorderRadius.circular(100.0),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.1),
-                        offset: Offset(6, 2),
-                        blurRadius: 6.0,
-                        spreadRadius: 3.0),
-                    BoxShadow(
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
-                        offset: Offset(-6, -2),
-                        blurRadius: 6.0,
-                        spreadRadius: 3.0)
-                  ],
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                  //       offset: Offset(6, 2),
+                  //       blurRadius: 6.0,
+                  //       spreadRadius: 3.0),
+                  //   BoxShadow(
+                  //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                  //       offset: Offset(-6, -2),
+                  //       blurRadius: 6.0,
+                  //       spreadRadius: 3.0)
+                  // ],
                 ),
                 child: TextFormField(
                   autovalidateMode: AutovalidateMode.always,
@@ -84,21 +87,22 @@ class LoginPage1State extends State<LoginPage1> {
                 height: 10.0,
               ),
               Container(
-                decoration: BoxDecoration(
-                    color: Color(0XFFEFF3F6),
-                    borderRadius: BorderRadius.circular(100.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.1),
-                          offset: Offset(6, 2),
-                          blurRadius: 4.0,
-                          spreadRadius: 3.0),
-                      BoxShadow(
-                          color: Color.fromRGBO(255, 255, 255, 0.9),
-                          offset: Offset(-6, -2),
-                          blurRadius: 6.0,
-                          spreadRadius: 3.0)
-                    ]),
+                 decoration: BoxDecoration(
+                  color: Color(0XFFa8ccd7),
+                  borderRadius: BorderRadius.circular(100.0),
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                  //       offset: Offset(6, 2),
+                  //       blurRadius: 4.0,
+                  //       spreadRadius: 3.0),
+                  //   BoxShadow(
+                  //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                  //       offset: Offset(-6, -2),
+                  //       blurRadius: 6.0,
+                  //       spreadRadius: 3.0)
+                  // ],
+                ),
                 child: TextFormField(
                   obscureText: true,
                   autovalidateMode: AutovalidateMode.always,
@@ -151,7 +155,22 @@ class LoginPage1State extends State<LoginPage1> {
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(height: 0.7),
+              MaterialButton(
+                onPressed: () {
+                  Get.off(SignUpPage1());
+                },
+                child: Container(
+                    padding: EdgeInsets.only(left: 30),
+                    // color: Colors.red,
+                    height: 30,
+                    width: 300,
+                    child: Text(
+                      "Have already account?  SignUp",
+                      style: TextStyle(),
+                    )),
+              ),
             ],
           ),
         ),

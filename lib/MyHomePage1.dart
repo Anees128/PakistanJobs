@@ -110,19 +110,28 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     },
                     child: Container(
-                      padding: EdgeInsets.all(10.0),
-                      child: Icon(Icons.person,color: Colors.grey,),
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(40),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.white,
-                              offset: Offset(6, 2),
-                              blurRadius: 1.0,
-                              spreadRadius: 2.0),
-                        ],
+                        color: Color(0XFFa8ccd7),
+                        borderRadius: BorderRadius.circular(100.0),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                        //       offset: Offset(6, 2),
+                        //       blurRadius: 4.0,
+                        //       spreadRadius: 3.0),
+                        //   BoxShadow(
+                        //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                        //       offset: Offset(-6, -2),
+                        //       blurRadius: 6.0,
+                        //       spreadRadius: 3.0)
+                        // ],
                       ),
+                      padding: EdgeInsets.all(10.0),
+                      child: Icon(
+                        Icons.person,
+                        color: Colors.grey,
+                      ),
+                     
                     ),
                   ),
                 ],
