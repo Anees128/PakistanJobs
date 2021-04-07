@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pakistan_jobs2/SignInPage.dart';
-import 'package:pakistan_jobs2/SignUpPage.dart';
+import 'package:pakistan_jobs2/Registrations/SignInPage.dart';
+import 'package:pakistan_jobs2/Registrations/SignUpPage.dart';
 import 'package:share/share.dart';
 import 'MyHomePage1.dart';
 import 'package:get/get.dart';

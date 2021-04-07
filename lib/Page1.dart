@@ -3,13 +3,12 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:get/get.dart';
-import 'package:pakistan_jobs2/BalochistanJobs.dart';
-import 'package:pakistan_jobs2/BaltistanJobs.dart';
-import 'package:pakistan_jobs2/Data.dart';
+import 'package:pakistan_jobs2/Pages/BalochistanJobs.dart';
+import 'package:pakistan_jobs2/Pages/BaltistanJobs.dart';
 import 'package:pakistan_jobs2/FedrelJobs.dart';
-import 'package:pakistan_jobs2/KPKJobs.dart';
-import 'package:pakistan_jobs2/PunjabJobs.dart';
-import 'package:pakistan_jobs2/SindhJobs.dart';
+import 'package:pakistan_jobs2/Pages/KPKJobs.dart';
+import 'package:pakistan_jobs2/Pages/PunjabJobs.dart';
+import 'package:pakistan_jobs2/Pages/SindhJobs.dart';
 
 // import 'package:get/get.dart';
 // import 'package:pakistan_jobs2/GoogleSignIn.dart';
@@ -20,7 +19,7 @@ class Page1 extends StatefulWidget {
 
 class _Page1State extends State<Page1> {
   final databaseReference = FirebaseDatabase.instance.reference();
-  List<Data> dataList = [];
+  
 
   var titleList = [
     "KPK",

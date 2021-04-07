@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pakistan_jobs2/SplashScreen.dart';
+import 'package:pakistan_jobs2/Connectivity%20and%20Splash%20Screen/SplashScreen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
