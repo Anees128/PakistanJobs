@@ -2,10 +2,11 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:pakistan_jobs2/Pages/BalochistanJobs.dart';
 import 'package:pakistan_jobs2/Pages/BaltistanJobs.dart';
-import 'package:pakistan_jobs2/FedrelJobs.dart';
+import 'package:pakistan_jobs2/Pages/FedrelJobs.dart';
 import 'package:pakistan_jobs2/Pages/KPKJobs.dart';
 import 'package:pakistan_jobs2/Pages/PunjabJobs.dart';
 import 'package:pakistan_jobs2/Pages/SindhJobs.dart';

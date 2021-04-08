@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class SignInPage1 extends StatefulWidget {
 }
 
 class SignInPage1State extends State<SignInPage1> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,7 +89,7 @@ class SignInPage1State extends State<SignInPage1> {
                 height: 10.0,
               ),
               Container(
-                 decoration: BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color(0XFFa8ccd7),
                   borderRadius: BorderRadius.circular(100.0),
                   // boxShadow: [
@@ -128,7 +130,7 @@ class SignInPage1State extends State<SignInPage1> {
                 style: TextStyle(color: Colors.red),
               ),
               SizedBox(
-                height: 20.0,
+                height: 10.0,
               ),
               Row(
                 children: <Widget>[

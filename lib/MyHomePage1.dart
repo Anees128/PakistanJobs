@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:connectivity/connectivity.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/services.dart';
@@ -7,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:pakistan_jobs2/Page3.dart';
-import 'package:pakistan_jobs2/Profile1.dart';
+import 'package:pakistan_jobs2/Registrations/Profile1.dart';
 import 'Connectivity and Splash Screen/Connectivitypage.dart';
 import 'Page1.dart';
 import 'Page2.dart';

@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:pakistan_jobs2/Profile1.dart';
+import 'package:pakistan_jobs2/Registrations/Profile1.dart';
 import 'package:pakistan_jobs2/Registrations/SignInPage.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +27,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
   bool get success => null;
 
   registerUser() {
+
     if (name.text != null && email.text != null) {
       firestoreInstance.collection("users").add({
         "Name": name.text,
@@ -86,21 +87,21 @@ class _SignUpPage1State extends State<SignUpPage1> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0XFFa8ccd7),
-                      borderRadius: BorderRadius.circular(100.0),
-                      // boxShadow: [
-                      //   BoxShadow(
-                      //       color: Color.fromRGBO(0, 0, 0, 0.1),
-                      //       offset: Offset(6, 2),
-                      //       blurRadius: 6.0,
-                      //       spreadRadius: 3.0),
-                      //   BoxShadow(
-                      //       color: Color.fromRGBO(255, 255, 255, 0.9),
-                      //       offset: Offset(-6, -2),
-                      //       blurRadius: 6.0,
-                      //       spreadRadius: 3.0)
-                      // ]
-                      ),
+                    color: Color(0XFFa8ccd7),
+                    borderRadius: BorderRadius.circular(100.0),
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                    //       offset: Offset(6, 2),
+                    //       blurRadius: 6.0,
+                    //       spreadRadius: 3.0),
+                    //   BoxShadow(
+                    //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                    //       offset: Offset(-6, -2),
+                    //       blurRadius: 6.0,
+                    //       spreadRadius: 3.0)
+                    // ]
+                  ),
                   child: TextFormField(
                     autovalidateMode: AutovalidateMode.always,
                     controller: name,
@@ -132,7 +133,7 @@ class _SignUpPage1State extends State<SignUpPage1> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                   color: Color(0XFFa8ccd7),
+                    color: Color(0XFFa8ccd7),
                     borderRadius: BorderRadius.circular(100.0),
                     // boxShadow: [
                     //   BoxShadow(
@@ -165,7 +166,6 @@ class _SignUpPage1State extends State<SignUpPage1> {
                     ),
                   ),
                 ),
-                
                 SizedBox(
                   height: 10.0,
                 ),
@@ -181,23 +181,22 @@ class _SignUpPage1State extends State<SignUpPage1> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                     color: Color(0XFFa8ccd7),
-                      borderRadius: BorderRadius.circular(100.0),
-                      // boxShadow: [
-                      //   BoxShadow(
-                      //       color: Color.fromRGBO(0, 0, 0, 0.1),
-                      //       offset: Offset(6, 2),
-                      //       blurRadius: 4.0,
-                      //       spreadRadius: 3.0),
-                      //   BoxShadow(
-                      //       color: Color.fromRGBO(255, 255, 255, 0.9),
-                      //       offset: Offset(-6, -2),
-                      //       blurRadius: 6.0,
-                      //       spreadRadius: 3.0)
-                      // ]
-                      ),
+                    color: Color(0XFFa8ccd7),
+                    borderRadius: BorderRadius.circular(100.0),
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //       color: Color.fromRGBO(0, 0, 0, 0.1),
+                    //       offset: Offset(6, 2),
+                    //       blurRadius: 4.0,
+                    //       spreadRadius: 3.0),
+                    //   BoxShadow(
+                    //       color: Color.fromRGBO(255, 255, 255, 0.9),
+                    //       offset: Offset(-6, -2),
+                    //       blurRadius: 6.0,
+                    //       spreadRadius: 3.0)
+                    // ]
+                  ),
                   child: TextFormField(
-                    
                     autovalidateMode: AutovalidateMode.always,
                     obscureText: true,
                     controller: pass,
@@ -210,7 +209,6 @@ class _SignUpPage1State extends State<SignUpPage1> {
                       return null;
                     },
                     decoration: InputDecoration(
-                      
                       contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       border: InputBorder.none,
                       hintText: "Enter Password",
@@ -230,6 +228,8 @@ class _SignUpPage1State extends State<SignUpPage1> {
                     Expanded(
                       child: MaterialButton(
                         onPressed: () async {
+                          await auth.createUserWithEmailAndPassword(
+                              email: email.text, password: pass.text);
                           if (!_formKey.currentState.validate()) {
                             return;
                           }
