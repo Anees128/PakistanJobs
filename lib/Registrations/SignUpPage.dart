@@ -27,7 +27,6 @@ class _SignUpPage1State extends State<SignUpPage1> {
   bool get success => null;
 
   registerUser() {
-
     if (name.text != null && email.text != null) {
       firestoreInstance.collection("users").add({
         "Name": name.text,
@@ -228,8 +227,13 @@ class _SignUpPage1State extends State<SignUpPage1> {
                     Expanded(
                       child: MaterialButton(
                         onPressed: () async {
-                          await auth.createUserWithEmailAndPassword(
-                              email: email.text, password: pass.text);
+                          await auth
+                              .createUserWithEmailAndPassword(
+                                  email: email.text, password: pass.text)
+                              .then((value) {
+                            print('Login Successful');
+                          });
+                          Get.to(SignInPage1());
                           if (!_formKey.currentState.validate()) {
                             return;
                           }

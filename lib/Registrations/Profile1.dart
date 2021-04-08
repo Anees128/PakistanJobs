@@ -78,7 +78,10 @@ class _ProfilePage1State extends State<ProfilePage1> {
                         width: 130,
                         height: 130,
                         decoration: BoxDecoration(
-                          border: Border.all(width: 3, color: Colors.white),
+                          border: Border.all(
+                            width:4,
+                           color: Color(0XFF00867e),
+                          ),
                           boxShadow: [
                             BoxShadow(
                               spreadRadius: 2,

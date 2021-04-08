@@ -103,10 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ProfilePage1()),
-                      );
+                      Get.to(ProfilePage1());
                     },
                     child: Container(
                       decoration: BoxDecoration(

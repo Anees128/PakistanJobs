@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:pakistan_jobs2/MyHomePage1.dart';
+import 'package:pakistan_jobs2/Page1.dart';
 
 import 'SignUpPage.dart';
 
@@ -12,6 +14,8 @@ class SignInPage1 extends StatefulWidget {
 
 class SignInPage1State extends State<SignInPage1> {
   final FirebaseAuth auth = FirebaseAuth.instance;
+  TextEditingController email = new TextEditingController();
+  TextEditingController pass = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +65,7 @@ class SignInPage1State extends State<SignInPage1> {
                   // ],
                 ),
                 child: TextFormField(
+                  controller: email,
                   autovalidateMode: AutovalidateMode.always,
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
@@ -106,6 +111,7 @@ class SignInPage1State extends State<SignInPage1> {
                   // ],
                 ),
                 child: TextFormField(
+                  controller: pass,
                   obscureText: true,
                   autovalidateMode: AutovalidateMode.always,
                   validator: (value) {
@@ -135,27 +141,39 @@ class SignInPage1State extends State<SignInPage1> {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(15.0),
-                      child: Center(
-                        child: Text(
-                          "Log In",
-                          style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    child: MaterialButton(
+                      onPressed: () async {
+                        auth
+                            .signInWithEmailAndPassword(
+                                email: email.text, password: pass.text)
+                            .then((value) {
+                          print("Login Success");
+                          Get.to(MyHomePage());
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        child: Center(
+                          child: Text(
+                            "Sign Up",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 16.0),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0XFFFF27B0),
+                          borderRadius: BorderRadius.circular(100.0),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color(0XFFFF27B0),
+                                offset: Offset(2, 2),
+                                // blurRadius: 1.0,
+                                spreadRadius: 2.0),
+                          ],
                         ),
                       ),
-                      decoration: BoxDecoration(
-                        color: Color(0XFFFF27B0),
-                        borderRadius: BorderRadius.circular(100.0),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0XFFFF27B0),
-                              offset: Offset(2, 2),
-                              // blurRadius: 1.0,
-                              spreadRadius: 2.0),
-                        ],
-                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
               SizedBox(height: 0.7),
